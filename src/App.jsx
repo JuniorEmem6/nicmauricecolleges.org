@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import PublishArticle from "./Pages/Publish";
 import Journal from "./Pages/Journal";
-import Archive from "./pages/Archive";
+import Archive from "./Pages/Archive";
 import ProfessionalJournal from "./Pages/journals/Professional";
 import InnovationJournal from "./Pages/journals/Innovation";
 import NursingJournal from "./Pages/journals/Nursing";
