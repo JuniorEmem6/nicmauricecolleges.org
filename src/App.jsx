@@ -15,6 +15,9 @@ import Research from "./Pages/institute/Research";
 import Multidisciplinary from "./Pages/journals/Multidisciplinary";
 import About from "./components/About";
 import Articles from "./Pages/Articles";
+import SpecialtyCommunityJournal from "./Pages/journals/SpecialtyJournalCommunity";
+import SpecialtyNursingJournal from "./Pages/journals/SpecialtyJournalNursing";
+import Agriculture from "./Pages/institute/Agriculture";
 
 const App = () => {
   return (
@@ -36,7 +39,15 @@ const App = () => {
         <Route path="/inf" element={<InternationalNursingFoundation />} />
         <Route path="/nml" element={<League />} />
         <Route path="/research" element={<Research />} />
-
+        <Route path="/agriculture" element={<Agriculture />} />
+        <Route
+          path="/specialty-community-journal"
+          element={<SpecialtyCommunityJournal />}
+        />
+        <Route
+          path="/specialty-nursing-journal"
+          element={<SpecialtyNursingJournal />}
+        />
         <Route path="/health" element={<HealthInstitute />} />
         <Route path="/about" element={<About />} />
         <Route path="/articles" element={<Articles />} />

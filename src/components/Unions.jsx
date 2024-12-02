@@ -4,6 +4,7 @@ import Health from "../assets/institute/health.jpg";
 import Nursing from "../assets/institute/nursing.jpg";
 import League from "../assets/institute/LEAGUE.jpg";
 import Research from "../assets/institute/research.jpg";
+import Agriculture from "../assets/institute/Agric.jpg";
 import { Link } from "react-router-dom";
 
 const Unions = () => {
@@ -12,7 +13,7 @@ const Unions = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <div className="flex item-center justify-center">
+          <div className="flex  item-center justify-center">
             {/* <div className="bg-blue-600 border rounded-lg h-[7px] w-[100px] mt-[17px] mr-[7px]"></div> */}
             <h2 className="text-2xl font-bold text-blue-600 font-mono">
               Our Institutes | Foundations | Unions | Leagues | Councils |
@@ -27,8 +28,8 @@ const Unions = () => {
           </p>
         </div>{" "}
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-[80px]">
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[-40px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-[80px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[-90px]">
             <div className="flex justify-center mb-4">
               <img src={Health} alt="health" />
             </div>
@@ -52,7 +53,7 @@ const Unions = () => {
           </div>
 
           {/* Sea Freight */}
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[-2px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[-30px]">
             <div className="flex justify-center mb-4">
               <img src={League} alt="health" className="h-[120px]" />
             </div>
@@ -76,7 +77,7 @@ const Unions = () => {
           </div>
 
           {/* Warehousing */}
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[35px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[30px]">
             <div className="flex justify-center mb-4">
               <img src={Research} alt="health" className="h-[100px]" />
             </div>
@@ -100,7 +101,7 @@ const Unions = () => {
           </div>
 
           {/* Tracking */}
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[70px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[85px]">
             <div className="flex justify-center mb-4">
               <img src={Nursing} alt="health" />
             </div>
@@ -122,8 +123,29 @@ const Unions = () => {
               </button>
             </div>
           </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[140px]">
+            <div className="flex justify-center mb-4">
+              <img src={Agriculture} alt="institute of agriculture" />
+            </div>
+
+            <p className="text-gray-600 text-left text-[15px]">
+              A a non-profit organization dedicated to promoting best practices
+              in group farming and agricultural enterprises...
+            </p>
+
+            <div className="mt-[20px]">
+              <button
+                type="submit"
+                className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
+              >
+                <Link to="/agriculture">Read More..</Link>
+                <span className="mt-[5px]">
+                  <MdKeyboardArrowRight />
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-        {/* Real-Time Tracking Section */}
       </div>
     </section>
   );

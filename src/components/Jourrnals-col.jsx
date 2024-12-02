@@ -1,6 +1,8 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Innovation from "../assets/journal/innovations.jpg";
 import Wellspring from "../assets/journal/wellspring.jpg";
+import SpecialtyCommunityJournalImg from "../assets/journal/PCH.jpg";
+import SpecialtyNursingJournalImg from "../assets/journal/SpecialNurJourn.jpg";
 import { Link } from "react-router-dom";
 
 const JournalsCol = () => {
@@ -56,6 +58,57 @@ const JournalsCol = () => {
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
                 <Link to="/ijmri">Read More..</Link>
+                <span className="mt-[5px]">
+                  <MdKeyboardArrowRight />
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[70px] w-[300px]">
+            <div className="flex justify-center mb-4">
+              <img
+                src={SpecialtyCommunityJournalImg}
+                alt="innovation journal"
+                className="h-[130px]"
+              />
+            </div>
+
+            <p className="text-gray-600 text-left text-[15px]">
+              Click on the read more button to get more information.
+            </p>
+
+            <div className="mt-[45px]">
+              <button
+                type="submit"
+                className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
+              >
+                <Link to="/specialty-community-journal">Read More..</Link>
+                <span className="mt-[5px]">
+                  <MdKeyboardArrowRight />
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[70px] w-[300px]">
+            <div className="flex justify-center mb-4">
+              <img
+                src={SpecialtyNursingJournalImg}
+                alt="innovation journal"
+                className="h-[130px]"
+              />
+            </div>
+
+            <p className="text-gray-600 text-left text-[15px]">
+              Click on the read more button to get more information.
+            </p>
+
+            <div className="mt-[45px]">
+              <button
+                type="submit"
+                className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
+              >
+                <Link to="/specialty-nursing-journal">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Header />
-      <h1 className="text-[35px] lg:text-[40px] ml-[30px] lg:ml-[300px] font-bold mt-[30px]">
+      <h1 className="text-[35px] lg:text-[40px] ml-[30px] lg:ml-[300px] font-bold mt-[10px]">
         About Us
       </h1>
 
