@@ -36,7 +36,7 @@ const PublishArticle = () => {
     formDataToSend.append("phone", formData.phone);
     formDataToSend.append("file", formData.file);
 
-    const response = await fetch("http://44.226.145.213/submit-form", {
+    const response = await fetch("backend-project-play-production.up.railway.app/submit-form", {
       method: "POST",
       body: formDataToSend,
     });
