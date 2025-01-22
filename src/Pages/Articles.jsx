@@ -21,7 +21,7 @@ const Articles = () => {
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1-y37ZKyNZLSP6OvATvUeCopBd2ojHcDa/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/11A4ct_shlliMyrVi00-LLl2l51bU2Sjy/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -37,7 +37,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1-y37ZKyNZLSP6OvATvUeCopBd2ojHcDa/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1-y37ZKyNZLSP6OvATvUeCopBd2ojHcDa/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -60,7 +60,7 @@ const Articles = () => {
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1oNMyrNig1_sijfY0FTtsgt8HdLFnhVHl/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1UXS9vTu51v21MCilhokOloR2f-BGqi85/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -76,7 +76,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1G2Ny0EzrLYVIAMtLzTwvnl1L_q-q6tXO/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1G2Ny0EzrLYVIAMtLzTwvnl1L_q-q6tXO/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -115,7 +115,7 @@ const Articles = () => {
             <ul className="flex-wrap space-y-4 flex ">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1VRdQ86nlf7TdrUZMJ4QDVrLqt11XurCV/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1piWhbb-rL7lHnyzGvQc2huU1v5Xa7TMM/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -131,7 +131,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px]  ml-[10px] lg:l-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1piWhbb-rL7lHnyzGvQc2huU1v5Xa7TMM/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1VRdQ86nlf7TdrUZMJ4QDVrLqt11XurCV/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -147,7 +147,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1JginAx_4QtBktAp6FEQo02PMdkzIbi5l/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1JginAx_4QtBktAp6FEQo02PMdkzIbi5l/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -177,7 +177,7 @@ const Articles = () => {
               </li>
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/10JqO5Gei5rT24Wuyknd330bWimBqDk25/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/10JqO5Gei5rT24Wuyknd330bWimBqDk25/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -193,7 +193,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1DvKkwXAKxV6i2Szh7lXwD_dyObjXx895/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1DvKkwXAKxV6i2Szh7lXwD_dyObjXx895/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -208,7 +208,7 @@ const Articles = () => {
               </li>
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1q0DcxQYRjbLo-DcGNge8lTDTuwVr5JZz/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1q0DcxQYRjbLo-DcGNge8lTDTuwVr5JZz/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -224,7 +224,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1XweEOJYeoM3Qi04bHFhjG6bA_tVfd7no/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1XweEOJYeoM3Qi04bHFhjG6bA_tVfd7no/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -239,7 +239,7 @@ const Articles = () => {
               </li>
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1RY3UD2FOpWa5NO6FUqdeAn59N3CbNhhw/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1RY3UD2FOpWa5NO6FUqdeAn59N3CbNhhw/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -254,7 +254,7 @@ const Articles = () => {
               </li>
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1actsbvJyfAXDvrUujR7WktdT6r-m4M0s/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1actsbvJyfAXDvrUujR7WktdT6r-m4M0s/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -269,7 +269,7 @@ const Articles = () => {
               </li>
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1im2wILt9gu2GyDf5mjYIFElDaSOtllyM/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1im2wILt9gu2GyDf5mjYIFElDaSOtllyM/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -295,7 +295,7 @@ const Articles = () => {
             <ul className="space-y-4 flex flex-wrap">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1TJmz2k2WS2Dmho9wM6uhCmnPjlU4cN2q/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1TJmz2k2WS2Dmho9wM6uhCmnPjlU4cN2q/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -311,7 +311,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1klCCW_XPVd5bZtfIotpm6CEpyVUAeeOS/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1klCCW_XPVd5bZtfIotpm6CEpyVUAeeOS/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -327,7 +327,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/11TvBFjw4MH4SB9B3q5thHqn-3pkJFc2_/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/11TvBFjw4MH4SB9B3q5thHqn-3pkJFc2_/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -341,25 +341,9 @@ const Articles = () => {
                 </a>
               </li>
 
-              {/* <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
-                <a
-                  href="src\Pages\Articles\irjmpc\vol1no2.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 font-semibold"
-                >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
-                  <div className="flex items-center">
-                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
-                      Vol 1. No. 2
-                    </span>
-                  </div>
-                </a>
-              </li> */}
-
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1c5a4Hb4xdyQGICmAvR_EYrmezPGve-iQ/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1c5a4Hb4xdyQGICmAvR_EYrmezPGve-iQ/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -383,7 +367,7 @@ const Articles = () => {
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="https://drive.google.com/file/d/1mi4K5LbymGHDLMI4DYk2h2uZu1a68nWW/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1mi4K5LbymGHDLMI4DYk2h2uZu1a68nWW/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
