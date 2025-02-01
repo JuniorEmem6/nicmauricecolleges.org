@@ -381,9 +381,9 @@ const Articles = () => {
                 </a>
               </li>
 
-              {/* <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="src\Pages\oba.pdf"
+                  href="https://drive.google.com/file/d/195sarNHLSMfx9MIYNaLoqHW98TxNNTGp/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -391,7 +391,7 @@ const Articles = () => {
                   <FaFilePdf className="text-red-500 w-8 h-8" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
-                      File Two
+                      Art. 1 Vol. 2 No. 1 (Main work)
                     </span>
                   </div>
                 </a>
@@ -399,7 +399,7 @@ const Articles = () => {
 
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
-                  href="src\Pages\oba.pdf"
+                  href="https://drive.google.com/file/d/1GWso94KesaGyoZnplTkb7UvB9ZOxPcbX/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
@@ -407,11 +407,91 @@ const Articles = () => {
                   <FaFilePdf className="text-red-500 w-8 h-8" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
-                      File Three
+                      Art. 1 Vol. 2 No. 1 (Prelim)
                     </span>
                   </div>
                 </a>
-              </li> */}
+              </li>
+
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/1kcKUDYsuEo0hPfYK4hdxp29orwJHo3px/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Art. 3 Vol. 2 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/1lXbAQ9F57pN4Y_I8K_9R9zg-1BIr-hqM/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Art. 4 Vol. 2 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/14BbWmdJjGjWKSHeFw39miOG572rPOjaY/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Art. 5 Vol. 2 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/1VF_3RUwzlMjQMXfQVoOhKFgT-rajcSb9/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Art. 6 Vol. 2 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/1wIGnNOA0tzvO1jw-ZFcUO7cPEdf-rWzO/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Art. 8 Vol. 2 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
