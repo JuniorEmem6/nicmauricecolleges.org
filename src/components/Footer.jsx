@@ -39,7 +39,7 @@ function CardRow() {
       />
       <Card2Row
         title="Email"
-        text="info@nicmauricecolleges.org, nicmauricecollege@gmail.com"
+        text="nicmauricecollege@gmail.com"
         iconContainerClassName="bg-[#fefaf0]"
         icon={<BiEnvelope size="1.2rem" className="text-[#DDA10C]" />}
         hasBottomBorder
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 text-center text-gray-400">
-          <p>&copy; 2024 Nic Maurice College. All rights reserved.</p>
+          <p>&copy; 2025 Nic Maurice College. All rights reserved.</p>
         </div>
       </div>
     </footer>

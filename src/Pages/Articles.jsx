@@ -2,6 +2,10 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FaFilePdf } from "react-icons/fa";
+import Ipnj from "../assets/ipnj.jpeg";
+import Irjmpc from "../assets/irjmpc.jpeg";
+import Ijanr from "../assets/ijanr.jpeg";
+import Irjmpch from "../assets/irjmpch.jpeg";
 
 const Articles = () => {
   return (
@@ -9,15 +13,15 @@ const Articles = () => {
       <Header />
 
       <div className="container mx-auto ml-[20px] lg:ml-[260px] mb-[50px]">
-        <h1 className="text-[23px] lg:text-[32px] mt-[40px] font-bold lg:ml-[40px] border-b-2">
+        <h1 className="text-[23px] lg:text-[32px] mt-[40px] font-bold lg:ml-[30px] border-b-2">
           Our well documented articles
         </h1>
         <div className="flex  flex-col justify-around mt-[60px]">
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+            | International Research Journal of Public and Community
+            Health(IRJPCH)
+          </h1>
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[450px]">
-            <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
-              | International Research Journal of Public and Community
-              Health(IRJPCH)
-            </h1>
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
@@ -26,7 +30,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Irjmpch} alt="Irjmpch" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 2 No. 1
@@ -42,7 +46,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Irjmpch} alt="Irjmpch" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 1. No. 1
@@ -52,11 +56,10 @@ const Articles = () => {
               </li>
             </ul>
           </div>
-
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+            | International Journal Of Advanced Nursing and Research(IJANR)
+          </h1>
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[450px] mt-[25px]">
-            <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
-              | International Journal Of Advanced Nursing and Research(IJANR)
-            </h1>
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
@@ -65,7 +68,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijanr} alt="Ijanr" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol. 2 No. 1
@@ -81,7 +84,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijanr} alt="Ijanr" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol. 1 No. 1
@@ -108,10 +111,10 @@ const Articles = () => {
             </ul>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
-            <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
               | International Professional Nursing Journal (IPNJ)
             </h1>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
             <ul className="flex-wrap space-y-4 flex ">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
                 <a
@@ -120,7 +123,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  {/* <FaFilePdf className="text-red-500 w-8 h-8" /> */}
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol. 22 No. 2
@@ -136,7 +144,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol. 22 No. 1
@@ -152,7 +165,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 21. No. 3
@@ -167,7 +185,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 21. No. 2
@@ -182,7 +205,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 21. No. 1
@@ -198,7 +226,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 18. No. 1
@@ -213,7 +246,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Ipnj 2015
@@ -229,7 +267,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Ipnj 2014
@@ -244,7 +287,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Ipnj 2013
@@ -259,7 +307,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Ipnj 2012
@@ -274,7 +327,12 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img
+                    src={Ipnj}
+                    alt="International Professional Nursing Journal"
+                    className="w-11 h-11"
+                  />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Ipnj 2011
@@ -286,12 +344,13 @@ const Articles = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[600px] mt-[25px]">
-            <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+        <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
               | International Research Journal of Multidisciplinary-Practices,
               Public and Community Health(IRJMPC)
             </h1>
+        <div className="flex flex-col">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[600px] mt-[25px]">
+            
             <ul className="space-y-4 flex flex-wrap">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
@@ -300,7 +359,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Irjmpc} alt="Irjmpc" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol. 2 No. 2
@@ -316,7 +375,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Irjmpc} alt="Irjmpc" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol. 2 No. 1
@@ -332,7 +391,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Irjmpc} alt="Irjmpc" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 1. No. 2
@@ -348,7 +407,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Irjmpc} alt="Irjmpc" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 1. No. 1
@@ -359,11 +418,12 @@ const Articles = () => {
             </ul>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[450px] mt-[25px]">
-            <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
               | The International Journal of Multidisciplinary Researches and
               Innovations (IJMRI)
             </h1>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
+            
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
