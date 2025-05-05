@@ -28,8 +28,8 @@ const Unions = () => {
           </p>
         </div>{" "}
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-[80px]">
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[-90px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-[80px] w-[1100px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px]">
             <div className="flex justify-center mb-4">
               <img src={Health} alt="health" />
             </div>
@@ -52,32 +52,8 @@ const Unions = () => {
             </div>
           </div>
 
-          {/* Sea Freight */}
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[-30px]">
-            <div className="flex justify-center mb-4">
-              <img src={League} alt="health" className="h-[120px]" />
-            </div>
-
-            <p className="text-gray-600 text-left mt-[17px] text-[15px]">
-              a platform designed to foster collaboration and growth among our
-              dedicated team of editors ...
-            </p>
-
-            <div className="mt-[20px]">
-              <button
-                type="submit"
-                className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
-              >
-                <Link to="/nml">Read More..</Link>
-                <span className="mt-[5px]">
-                  <MdKeyboardArrowRight />
-                </span>
-              </button>
-            </div>
-          </div>
-
           {/* Warehousing */}
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[30px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[50px]">
             <div className="flex justify-center mb-4">
               <img src={Research} alt="health" className="h-[100px]" />
             </div>
@@ -101,7 +77,7 @@ const Unions = () => {
           </div>
 
           {/* Tracking */}
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[85px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[300px] h-[300px] ml-[10px] lg:ml-[95px]">
             <div className="flex justify-center mb-4">
               <img src={Nursing} alt="health" />
             </div>

@@ -33,12 +33,15 @@ const Header = () => {
 
         {/* Navigation Links (large screens) */}
 
-        <ul className="hidden lg:flex items-center justify-between w-[350px]">
+        <ul className="hidden lg:flex items-center justify-between w-[400px]">
           <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
             <Link to="/">Home</Link>
           </li>
           <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
             <Link to="/journal">Journals</Link>
+          </li>
+          <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
+            <Link to="/institute">Institutes</Link>
           </li>
           <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
             <Link to="/archive">Geni-Nexus</Link>

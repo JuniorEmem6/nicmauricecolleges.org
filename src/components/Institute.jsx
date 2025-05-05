@@ -1,11 +1,11 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
-import Innovation from "../assets/journal/innovations.jpg";
-import Wellspring from "../assets/journal/wellspring.jpg";
-import SpecialtyCommunityJournalImg from "../assets/journal/PCH.jpg";
-import SpecialtyNursingJournalImg from "../assets/journal/SpecialNurJourn.jpg";
+import Commonwealth from "../assets/Commonwealth.jpg";
+import Cone from "../assets/CONE.jpg";
+import NAN from "../assets/institute/nan.jpeg";
+import NSU from "../assets/institute/NSU.jpg";
 import { Link } from "react-router-dom";
 
-const JournalsCol = () => {
+const InstituteCol = () => {
   return (
     <section className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,8 +14,8 @@ const JournalsCol = () => {
           <div className="bg-white p-6 rounded-lg shadow-lg bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[-40px]">
             <div className="flex justify-center mb-4">
               <img
-                src={Wellspring}
-                alt="wellspring journal"
+                src={Commonwealth}
+                alt="commonwealth"
                 className="h-[150px]"
               />
             </div>
@@ -29,7 +29,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/wjwihpr">Read More..</Link>
+                <Link to="/commonwealth">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
@@ -41,8 +41,8 @@ const JournalsCol = () => {
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[15px] w-[300px]">
             <div className="flex justify-center mb-4">
               <img
-                src={Innovation}
-                alt="innovation journal"
+                src={Cone}
+                alt="Counsel of nursing elders"
                 className="h-[130px]"
               />
             </div>
@@ -57,7 +57,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/ijmri">Read More..</Link>
+                <Link to="/cne">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
@@ -68,8 +68,8 @@ const JournalsCol = () => {
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[35px] w-[300px]">
             <div className="flex justify-center mb-4">
               <img
-                src={SpecialtyCommunityJournalImg}
-                alt="innovation journal"
+                src={NAN}
+                alt="Nursing Academy of Nigeria"
                 className="h-[130px]"
               />
             </div>
@@ -83,17 +83,17 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/isjpchnr">Read More..</Link>
+                <Link to="/nan">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
               </button>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[65px] lg:ml-[10px] w-[300px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ml-[10px] lg:ml-[70px] w-[300px]">
             <div className="flex justify-center mb-4">
               <img
-                src={SpecialtyNursingJournalImg}
+                src={NSU}
                 alt="innovation journal"
                 className="h-[130px]"
               />
@@ -108,7 +108,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/isjner">Read More..</Link>
+                <Link to="/nsu">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
@@ -121,4 +121,4 @@ const JournalsCol = () => {
   );
 };
 
-export default JournalsCol;
+export default InstituteCol;

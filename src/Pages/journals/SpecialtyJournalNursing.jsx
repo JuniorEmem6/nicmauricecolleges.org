@@ -7,450 +7,217 @@ import { Link } from "react-router-dom";
 
 const SpecialtyNursingJournal = () => {
   return (
-    <>
-      <Header />
-
-      <div className="mt-[80px] ml-[30px] lg:ml-[100px]">
-        <div>
-          <h1 className="text-[25px] font-bold leading-[30px] lg:leading-[45px] underline">
-            INTERNATIONAL SPECIALTY JOURNAL OF NURSING EDUCATION RESEARCH -
-            SHAPING THE FUTURE OF NURSING(ISJNER)
-          </h1>
-        </div>
-        <div className="mt-[60px]">
-          <img
-            src={SpecialtyNursingJournalImg}
-            alt="specialty nursing research journal"
-            className="w-[600px] lg:w-[900px] h-[300px] lg:h-[400px]"
+   <>
+   <Header />
+   <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+      {/* Header with Nursing Education Image */}
+      <header className="relative bg-indigo-800 text-white rounded-xl shadow-lg mb-8 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1581093450021-4a7360e9aab5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+            alt="Nursing Education"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
-        <div className="w-[300px] lg:w-[1000px] mt-[35px] text-[16px] font-mono">
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Mission:</i>
-            </span>{" "}
-            To be the leading international platform for disseminating
-            cutting-edge research and innovative practices in nursing education,
-            fostering excellence in teaching, learning, and scholarship.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Vision</i>
-            </span>{" "}
-            To empower educators, researchers, and policymakers worldwide to
-            transform nursing education, preparing future generations of nurses
-            to meet the evolving needs of global healthcare.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Target Audience:</i>
-          </h3>
-          <ul className="mt-[15px]">
-            <li>
-              <span className="font-semibold">
-                <i> Nursing Educators: </i>{" "}
-              </span>{" "}
-              Faculty, instructors, and educators at all levels of nursing
-              education.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Nursing Researchers: </i>
-              </span>{" "}
-              Researchers investigating best practices in nursing education,
-              curriculum development, and student learning.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Nursing Students: </i>{" "}
-              </span>{" "}
-              Undergraduate and graduate nursing students seeking to explore
-              innovative teaching methods and research findings.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Policymakers and Healthcare Administrators: </i>{" "}
-              </span>{" "}
-              Individuals involved in shaping nursing education policy and
-              improving healthcare systems.
-            </li>
-          </ul>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Content Focus:</i>
-          </h3>
-          <ul className="mt-[15px]">
-            <li>
-              <span className="font-semibold">
-                <i> Original Research: </i>{" "}
-              </span>{" "}
-              Emphasizing rigorous research methodologies and impactful findings
-              in nursing education, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Teaching and Learning: </i>
-              </span>{" "}
-              Studies examining effective teaching strategies, innovative
-              curriculum design, and student learning outcomes.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Faculty Development: </i>{" "}
-              </span>{" "}
-              Research exploring professional development opportunities for
-              nursing educators, including mentorship, leadership training, and
-              research skills.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Technology Integration: </i>{" "}
-              </span>{" "}
-              Studies investigating the use of technology in nursing education,
-              including online learning platforms, simulations, and virtual
-              reality.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Global Nursing Education:</i>{" "}
-              </span>{" "}
-              Research addressing challenges and opportunities in nursing
-              education across different countries and cultures.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Clinical Practice Guidelines: </i>{" "}
-              </span>{" "}
-              Providing evidence-based recommendations for best practices in
-              nursing education, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Curriculum Development: </i>{" "}
-              </span>{" "}
-              Guidelines for developing effective and relevant nursing curricula
-              that meet the needs of students and the healthcare system.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Assessment and Evaluation: </i>{" "}
-              </span>{" "}
-              Recommendations for best practices in assessing student learning
-              and evaluating the effectiveness of nursing education programs.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Simulation and Technology: </i>{" "}
-              </span>{" "}
-              Guidelines for integrating simulation and technology into nursing
-              education to enhance student learning and clinical skills.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Case Studies: </i>{" "}
-              </span>{" "}
-              Presenting real-world examples of innovative teaching practices,
-              curriculum development, and student learning experiences.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Expert Opinion: </i>{" "}
-              </span>{" "}
-              Featuring insightful perspectives from leading experts in nursing
-              education, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Emerging Trends: </i>
-              </span>{" "}
-              Discussions on the latest advancements in nursing education, such
-              as competency-based education, interprofessional education, and
-              personalized learning.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Ethical Considerations: </i>
-              </span>{" "}
-              Analysis of ethical challenges faced by nursing educators, such as
-              student privacy, academic integrity, and cultural sensitivity.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Leadership and Advocacy: </i>{" "}
-              </span>{" "}
-              Perspectives on leadership roles, advocacy efforts, and the future
-              of nursing education.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Technology and Innovation: </i>
-              </span>{" "}
-              Exploring the latest advancements in technology, devices, and
-              interventions impacting nursing education, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Virtual Reality and Augmented Reality: </i>
-              </span>{" "}
-              Applications of VR and AR in nursing education for immersive
-              learning experiences and skill development.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Artificial Intelligence and Machine Learning: </i>{" "}
-              </span>{" "}
-              Use of AI and ML in personalized learning, adaptive assessments,
-              and student support systems.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Open Educational Resources: </i>{" "}
-              </span>{" "}
-              Exploring the use of open educational resources to enhance access
-              to quality nursing education materials.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Global Perspectives: </i>{" "}
-              </span>{" "}
-              Showcasing research and practice from diverse geographical regions
-              and cultural contexts, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Cultural Sensitivity: </i>
-              </span>{" "}
-              Addressing cultural differences in nursing education, teaching
-              styles, and student learning preferences.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Global Health Initiatives: </i>{" "}
-              </span>{" "}
-              Highlighting international collaborations and initiatives aimed at
-              improving global nursing education.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> International Nursing Education Standards: </i>{" "}
-              </span>{" "}
-              Exploring best practices and standards in nursing education across
-              different countries.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Patient Safety and Quality Improvement: </i>{" "}
-              </span>{" "}
-              Addressing key issues related to patient safety and quality of
-              care in nursing education, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Simulation-Based Training: </i>
-              </span>{" "}
-              Use of simulation to enhance student clinical skills and improve
-              patient safety.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Inter professional Education:</i>{" "}
-              </span>{" "}
-              Promoting collaboration and communication between nursing students
-              and other healthcare professionals.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Quality Improvement Initiatives: </i>{" "}
-              </span>{" "}
-              Promoting collaboration and communication between nursing students
-              and other healthcare professionals.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Ethical Considerations: </i>{" "}
-              </span>{" "}
-              Examining ethical dilemmas and challenges faced by nursing
-              educators, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Student Privacy: </i>{" "}
-              </span>{" "}
-              Protecting student privacy and confidentiality in the context of
-              education and research.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Academic Integrity: </i>
-              </span>{" "}
-              Promoting academic integrity and addressing issues of plagiarism
-              and cheating.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Cultural Sensitivity: </i>{" "}
-              </span>{" "}
-              Ensuring culturally sensitive teaching practices and curriculum
-              development.
-            </li>
-          </ul>
-
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Key Features:</i>
-          </h3>
-          <ul className="mt-[15px]">
-            <li>
-              <span className="font-semibold">
-                <i> Rigorous Peer Review: </i>
-              </span>{" "}
-              All submissions undergo a double-blind peer review process by
-              experts in the field, ensuring the quality and credibility of
-              published content.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Open Access: </i>{" "}
-              </span>{" "}
-              Making research and knowledge accessible to a wider audience,
-              promoting the dissemination of evidence-based practices and
-              fostering collaboration.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Online Platform: </i>
-              </span>{" "}
-              Providing a user-friendly online platform with advanced search
-              capabilities, multimedia content, and interactive features,
-              including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Article Collections: </i>
-              </span>{" "}
-              Curated collections of articles on specific topics, providing
-              readers with a comprehensive overview of the latest research and
-              best practices.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Author Profiles: </i>
-              </span>{" "}
-              Detailed profiles of authors, showcasing their expertise and
-              contributions to the field.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Multimedia Content: </i>{" "}
-              </span>{" "}
-              Integration of videos, podcasts, and infographics to enhance
-              engagement and understanding.
-            </li>
-            <li>
-              <span className="font-semibold"></span>{" "}
-              <i> Interactive Forums: </i>Online forums for readers to engage in
-              discussions, ask questions, and share their experiences.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> International Editorial Board: </i>
-              </span>{" "}
-              Composed of renowned experts from diverse backgrounds and
-              specialties, ensuring a global perspective and high-quality
-              editorial oversight.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Regular Conferences and Workshops: </i>
-              </span>{" "}
-              Organizing events to foster collaboration, knowledge sharing, and
-              professional development, including:
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Annual Conferences: </i>
-              </span>{" "}
-              Bringing together leading researchers, clinicians, and educators
-              to present their latest findings and engage in discussions on
-              emerging trends.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Workshops and Webinars: </i>{" "}
-              </span>{" "}
-              Providing hands-on training and educational opportunities on
-              specific topics relevant to nursing education.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Awards and Recognition: </i>{" "}
-              </span>{" "}
-              Recognizing outstanding contributions to the field of nursing
-              education through awards and honors, fostering excellence and
-              innovation
-            </li>
-          </ul>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Call for Papers:</i>
-          </h3>
-          <p className="mt-[15px]">
-            welcomes submissions from authors worldwide. We encourage
-            submissions that address the following themes:
-          </p>
-          <ul className="mt-[]15px">
-            <li>
-              <span className="font-semibold">
-                <i> Innovative Teaching and Learning Strategies: </i>
-              </span>{" "}
-              Research and practice innovations that enhance student engagement,
-              promote critical thinking, and improve learning outcomes.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Technology-Enhanced Nursing Education: </i>
-              </span>{" "}
-              Application of technology to transform nursing education,
-              including online learning platforms, simulations, and virtual
-              reality.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Global Nursing Education Challenges and Opportunities: </i>{" "}
-              </span>{" "}
-              Research and interventions addressing challenges and opportunities
-              in nursing education across different countries and cultures.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Nursing Education Policy and Advocacy: </i>
-              </span>{" "}
-              Studies exploring the impact of policy on nursing education,
-              advocacy efforts, and the future of the nursing profession.
-            </li>
-            <li>
-              <span className="font-semibold">
-                <i> Ethical Considerations in Nursing Education: </i>
-              </span>{" "}
-              Analysis of ethical dilemmas and challenges faced by nursing
-              educators, including student privacy, academic integrity, and
-              cultural sensitivity.
-            </li>
-          </ul>
+        
+        <div className="relative z-10 p-8 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold">
+            INTERNATIONAL SPECIALTY JOURNAL OF NURSING EDUCATION RESEARCH
+          </h1>
+          <p className="mt-4 text-xl text-indigo-200">Shaping the Future of Nursing (ISJNER)</p>
         </div>
+      </header>
 
-        <div className="mt-[40px] mb-[30px]">
-          <button
-            type="submit"
-            className="w-[50%] lg:w-[10%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
-          >
-            <Link to="/articles">See articles </Link>
-            <span className="mt-[5px]">
-              <MdKeyboardArrowRight />
-            </span>
-          </button>
+      {/* Mission & Vision */}
+      <div className="bg-indigo-50 rounded-xl p-6 mb-8">
+        <div className="mb-6">
+          <h3 className="text-2xl font-semibold text-indigo-800 mb-2">Our Mission</h3>
+          <p className="text-gray-700">
+            To be the leading international platform for disseminating cutting-edge research and innovative practices in nursing education, fostering excellence in teaching, learning, and scholarship.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-2xl font-semibold text-indigo-800 mb-2">Our Vision</h3>
+          <p className="text-gray-700">
+            To empower educators, researchers, and policymakers worldwide to transform nursing education, preparing future generations of nurses to meet the evolving needs of global healthcare.
+          </p>
         </div>
       </div>
-      <Footer />
-    </>
+
+      {/* Target Audience */}
+      <section className="bg-white rounded-xl shadow-md p-6 mb-8">
+        <h2 className="text-2xl font-bold text-indigo-900 border-l-4 border-indigo-500 pl-4 mb-6">Target Audience</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            "Nursing Educators: Faculty and instructors at all levels",
+            "Nursing Researchers: Scholars investigating education practices",
+            "Nursing Students: Learners exploring innovative methods",
+            "Policymakers: Leaders shaping nursing education standards"
+          ].map((audience, index) => (
+            <div key={index} className="flex items-start p-3 bg-indigo-50 rounded-lg">
+              <span className="bg-indigo-500 text-white rounded-full p-1 mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </span>
+              <span className="text-gray-700">{audience}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Content Focus */}
+      <section className="bg-white rounded-xl shadow-md p-6 mb-8">
+        <h2 className="text-2xl font-bold text-indigo-900 border-l-4 border-indigo-500 pl-4 mb-6">Content Focus</h2>
+        
+        {/* Original Research */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold text-indigo-800 mb-3">Original Research</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              "Teaching & Learning: Effective strategies and outcomes",
+              "Faculty Development: Professional growth for educators",
+              "Technology Integration: Digital tools in nursing education",
+              "Global Education: Cross-cultural teaching approaches"
+            ].map((item, index) => (
+              <div key={index} className="flex items-start bg-indigo-50 p-3 rounded-lg">
+                <span className="bg-indigo-200 text-indigo-800 rounded-full p-1 mr-2">•</span>
+                <span className="text-gray-700">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Clinical Practice Guidelines */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold text-indigo-800 mb-3">Clinical Practice Guidelines</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              "Curriculum Development: Creating effective programs",
+              "Assessment Methods: Evaluating student learning",
+              "Simulation Training: Enhancing clinical skills",
+              "Interprofessional Education: Collaborative learning"
+            ].map((item, index) => (
+              <div key={index} className="flex items-start bg-indigo-50 p-3 rounded-lg">
+                <span className="bg-indigo-200 text-indigo-800 rounded-full p-1 mr-2">•</span>
+                <span className="text-gray-700">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Other Focus Areas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Case Studies",
+              content: "Real-world examples of innovative teaching practices",
+              icon: "📚"
+            },
+            {
+              title: "Expert Opinion",
+              content: "Leading perspectives on nursing education trends",
+              icon: "💡"
+            },
+            {
+              title: "Emerging Technologies",
+              content: "VR, AR, and AI applications in nursing education",
+              icon: "🖥️"
+            },
+            {
+              title: "Global Perspectives",
+              content: "Cross-cultural research in nursing education",
+              icon: "🌐"
+            },
+            {
+              title: "Ethical Considerations",
+              content: "Addressing academic integrity and cultural sensitivity",
+              icon: "⚖️"
+            },
+            {
+              title: "Quality Improvement",
+              content: "Enhancing nursing education standards",
+              icon: "📈"
+            }
+          ].map((item, index) => (
+            <div key={index} className="bg-white border border-indigo-100 p-4 rounded-lg hover:shadow-md transition-shadow">
+              <div className="text-2xl mb-2">{item.icon}</div>
+              <h4 className="font-semibold text-indigo-700 mb-2">{item.title}</h4>
+              <p className="text-gray-700 text-sm">{item.content}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Key Features */}
+      <section className="bg-white rounded-xl shadow-md p-6 mb-8">
+        <h2 className="text-2xl font-bold text-indigo-900 border-l-4 border-indigo-500 pl-4 mb-6">Key Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            "Rigorous Peer Review: Double-blind expert evaluation",
+            "Open Access: Global availability of research",
+            "Multimedia Platform: Videos, podcasts, and more",
+            "International Board: Global editorial oversight",
+            "Professional Events: Conferences and workshops",
+            "Awards Program: Recognizing excellence in the field"
+          ].map((feature, index) => (
+            <div key={index} className="flex items-start p-3 bg-gray-50 rounded-lg border border-indigo-100">
+              <span className="bg-indigo-500 text-white rounded-full p-1 mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </span>
+              <span className="text-gray-700">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call for Papers */}
+      <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 mb-8 rounded-r-lg">
+        <h3 className="text-2xl font-semibold text-indigo-900 mb-4">Call for Papers</h3>
+        <p className="text-gray-700 mb-4">We welcome submissions on these themes:</p>
+        <ul className="space-y-3">
+          {[
+            "Innovative Teaching Strategies",
+            "Technology-Enhanced Education",
+            "Global Nursing Education",
+            "Education Policy & Advocacy",
+            "Ethical Considerations"
+          ].map((theme, index) => (
+            <li key={index} className="flex items-start">
+              <span className="bg-indigo-500 text-white rounded-full p-1 mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </span>
+              <span className="text-gray-700 font-medium">{theme}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* CTA */}
+      <div className="bg-indigo-800 text-white rounded-xl p-8 text-center shadow-lg">
+        <h3 className="text-2xl font-bold mb-4">Contribute to Nursing Education Research</h3>
+        <p className="mb-6 text-indigo-100">Join our global community of nursing educators and researchers</p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <Link 
+            to="/articles" 
+            className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium text-white transition duration-200"
+          >
+            Browse Articles
+            <MdKeyboardArrowRight className="h-5 w-5 ml-2" />
+          </Link>
+          <a href="#submit" className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white hover:bg-indigo-700 rounded-lg font-medium text-white transition duration-200">
+            Submit Your Research
+          </a>
+        </div>
+      </div>
+
+    </div>
+   <Footer />
+   </>
   );
 };
 
