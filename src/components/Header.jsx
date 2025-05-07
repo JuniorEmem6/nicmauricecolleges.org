@@ -71,6 +71,9 @@ const Header = () => {
             <li className="hover:text-blue-600 text-gray-500 text-[21px] font-semibold ml-[20px] mt-[6px] md:text-[17px]">
               <Link to="/journal">Journals</Link>
             </li>
+            <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
+            <Link to="/institute">Institutes</Link>
+          </li>
             <li className="hover:text-blue-600 text-gray-500 text-[21px] font-semibold ml-[20px] mt-[6px] md:text-[17px]">
               <Link to="/archive">Geni-Nexus</Link>
             </li>
