@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InstituteCol from "../components/Institute";
 import InstituteCol2 from "../components/Institute1";
+import InstituteCol3 from "../components/Institute3";
 
 const Institute = () => {
   return (
@@ -14,6 +15,7 @@ const Institute = () => {
      <div className="mt-[60px]">
      <InstituteCol />
      <InstituteCol2 />
+     <InstituteCol3 />
      </div>
       <Footer />
     </>

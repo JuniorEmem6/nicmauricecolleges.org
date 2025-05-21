@@ -323,7 +323,7 @@ const MentalHealthJournal = () => {
           </p>
           <Link to="/publish">
             <p className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg font-medium text-white transition duration-200">
-              Contact our editorial team
+              Publish your research
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-2"

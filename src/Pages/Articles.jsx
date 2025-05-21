@@ -6,6 +6,10 @@ import Ipnj from "../assets/ipnj.jpeg";
 import Irjmpc from "../assets/irjmpc.jpeg";
 import Ijanr from "../assets/ijanr.jpeg";
 import Irjmpch from "../assets/irjmpch.jpeg";
+import Ijacn from "../assets/journal/ijacn.jpg";
+import Maternal from "../assets/journal/maternal.jpg";
+import Surgical from "../assets/journal/medical.jpg";
+import Ijmri from "../assets/journal/innovations.jpg";
 
 const Articles = () => {
   return (
@@ -112,8 +116,8 @@ const Articles = () => {
           </div>
 
           <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
-              | International Professional Nursing Journal (IPNJ)
-            </h1>
+            | International Professional Nursing Journal (IPNJ)
+          </h1>
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
             <ul className="flex-wrap space-y-4 flex ">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[10px] lg:ml-[30px]">
@@ -345,12 +349,11 @@ const Articles = () => {
         </div>
 
         <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
-              | International Research Journal of Multidisciplinary-Practices,
-              Public and Community Health(IRJMPC)
-            </h1>
+          | International Research Journal of Multidisciplinary-Practices,
+          Public and Community Health(IRJMPC)
+        </h1>
         <div className="flex flex-col">
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[600px] mt-[25px]">
-            
             <ul className="space-y-4 flex flex-wrap">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
@@ -419,11 +422,10 @@ const Articles = () => {
           </div>
 
           <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
-              | The International Journal of Multidisciplinary Researches and
-              Innovations (IJMRI)
-            </h1>
+            | The International Journal of Multidisciplinary Researches and
+            Innovations (IJMRI)
+          </h1>
           <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
-            
             <ul className="space-y-4 flex">
               <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
                 <a
@@ -432,7 +434,7 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Vol 2 No. 1
@@ -448,7 +450,8 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 1 Vol. 2 No. 1 (Main work)
@@ -464,7 +467,8 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 1 Vol. 2 No. 1 (Prelim)
@@ -480,7 +484,8 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 3 Vol. 2 No. 1
@@ -496,7 +501,8 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 4 Vol. 2 No. 1
@@ -512,7 +518,8 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 5 Vol. 2 No. 1
@@ -528,7 +535,8 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 6 Vol. 2 No. 1
@@ -544,10 +552,83 @@ const Articles = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  <FaFilePdf className="text-red-500 w-8 h-8" />
+                  <img src={Ijmri} alt="Ijmri" className="w-11 h-11" />
+
                   <div className="flex items-center">
                     <span className="text-[11px] mt-[7px] font-medium text-gray-800">
                       Art. 8 Vol. 2 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+            International Specialty Journal of Advanced Clinical Nursing
+            Research
+          </h1>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
+            <ul className="space-y-4 flex">
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/1TUSnfyZ6jn8jgeau5yevkXrlpCFeR-GQ/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <img src={Ijacn} alt="Ijacn" className="w-11 h-11" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Vol 1 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+            International Specialty Journal of Maternal and Child Health Nursing
+            Research
+          </h1>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
+            <ul className="space-y-4 flex">
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/1vjnS4Fn6uTyzLuZq7rZwD3pt0fIBVSGq/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <img src={Maternal} alt="Maternal" className="w-11 h-11" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Vol 1 No. 1
+                    </span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <h1 className="text-[17px] text-gray-500 font-bold mb-6 mt-[35px]">
+            International Specialty Journal of Medical and Surgical Nursing
+            Research
+          </h1>
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-[308px] lg:w-[1250px] mt-[25px]">
+            <ul className="space-y-4 flex">
+              <li className="flex items-center justify-center p-4 bg-white shadow-md rounded-md hover:shadow-lg transition duration-200 w-[100px] ml-[30px]">
+                <a
+                  href="https://drive.google.com/file/d/11fkYlw-HiJE9aJMh4F9PbKU3diPXEPGV/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <img src={Surgical} alt="Surgical" className="w-11 h-11" />
+                  <div className="flex items-center">
+                    <span className="text-[11px] mt-[7px] font-medium text-gray-800">
+                      Vol 1 No. 1
                     </span>
                   </div>
                 </a>

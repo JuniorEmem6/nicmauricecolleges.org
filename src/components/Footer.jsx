@@ -69,7 +69,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-[25px] font-semibold mb-4 text-blue-600">
-              Nic Maurice Colleges
+              NicMaurice Colleges
             </h3>
             <p className="text-gray-400 mt-[-18px]">
               Empowering the new generation of scholars across the globe
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 text-center text-gray-400">
-          <p>&copy; 2025 Nic Maurice College. All rights reserved.</p>
+          <p>&copy; 2025 NicMaurice College. All rights reserved.</p>
         </div>
       </div>
     </footer>

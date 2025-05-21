@@ -31,6 +31,7 @@ import ClinicalNursingJournal from "./Pages/journals/ClinicalNursingJournal";
 import MedicalSurgicalNursingJournal from "./Pages/journals/MedicalSurgical";
 import MaternalChildJournal from "./Pages/journals/MaternalJournal";
 import NSUNProfilePage from "./Pages/journals/Nsu";
+import ICVSPage from "./Pages/institute/Computer";
 
 
 const App = () => {
@@ -65,6 +66,10 @@ const App = () => {
         <Route
           path="/mchnr"
           element={<MaternalChildJournal  />}
+        />
+        <Route
+          path="/icvs"
+          element={<ICVSPage  />}
         />
         <Route path="/jani" element={<JANI />} />
         <Route path="/commonwealth" element={<CommonwealthPage />} />
