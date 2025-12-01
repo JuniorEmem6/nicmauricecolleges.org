@@ -22,7 +22,7 @@ import Agriculture from "./Pages/institute/Agriculture";
 import JANI from "./Pages/institute/Jani";
 import IntegratedHealth from "./Pages/institute/IntegratedHealth";
 import CommonwealthPage from "./Pages/institute/Commonwealth";
-import ISJCHNR from "./Pages/journals/Isjchnr"
+import ISJCHNR from "./Pages/journals/Isjchnr";
 import NursingAcademy from "./Pages/institute/NursingAcademy";
 import Maurice from "./Pages/institute/Maurice";
 import CONE from "./Pages/institute/Cone";
@@ -32,13 +32,37 @@ import MedicalSurgicalNursingJournal from "./Pages/journals/MedicalSurgical";
 import MaternalChildJournal from "./Pages/journals/MaternalJournal";
 import NSUNProfilePage from "./Pages/journals/Nsu";
 import ICVSPage from "./Pages/institute/Computer";
-
+import AcademyPage from "./Pages/Academy";
+import StudentDashboard from "./Pages/Student";
+import TeacherDashboard from "./Pages/Teacher";
+import RegisterPage from "./Pages/Register";
+import LoginPage from "./Pages/Login";
+import ProtectedRoute from "./components/ProtectRoute";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/academy" element={<AcademyPage />} />
+        <Route
+          path="/teacher"
+          element={
+            <ProtectedRoute>
+              <TeacherDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/student"
+          element={
+            <ProtectedRoute>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/publish" element={<PublishArticle />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/institute" element={<Institute />} />
@@ -47,30 +71,12 @@ const App = () => {
           path="/professional-nursing-journal"
           element={<ProfessionalJournal />}
         />
-        <Route
-          path="/Isjmpnr"
-          element={<MentalHealthJournal />}
-        />
-        <Route
-          path="/nsu"
-          element={<NSUNProfilePage />}
-        />
-        <Route
-          path="/ijacn"
-          element={<ClinicalNursingJournal />}
-        />
-         <Route
-          path="/msnr"
-          element={<MedicalSurgicalNursingJournal />}
-        />
-        <Route
-          path="/mchnr"
-          element={<MaternalChildJournal  />}
-        />
-        <Route
-          path="/icvs"
-          element={<ICVSPage  />}
-        />
+        <Route path="/Isjmpnr" element={<MentalHealthJournal />} />
+        <Route path="/nsu" element={<NSUNProfilePage />} />
+        <Route path="/ijacn" element={<ClinicalNursingJournal />} />
+        <Route path="/msnr" element={<MedicalSurgicalNursingJournal />} />
+        <Route path="/mchnr" element={<MaternalChildJournal />} />
+        <Route path="/icvs" element={<ICVSPage />} />
         <Route path="/jani" element={<JANI />} />
         <Route path="/commonwealth" element={<CommonwealthPage />} />
         <Route path="/cne" element={<CONE />} />
@@ -87,14 +93,8 @@ const App = () => {
         <Route path="/nmc" element={<Maurice />} />
         <Route path="/research" element={<Research />} />
         <Route path="/agriculture" element={<Agriculture />} />
-        <Route
-          path="/isjpchnr"
-          element={<SpecialtyCommunityJournal />}
-        />
-        <Route
-          path="/isjner"
-          element={<SpecialtyNursingJournal />}
-        />
+        <Route path="/isjpchnr" element={<SpecialtyCommunityJournal />} />
+        <Route path="/isjner" element={<SpecialtyNursingJournal />} />
         <Route path="/health" element={<HealthInstitute />} />
         <Route path="/about" element={<About />} />
         <Route path="/articles" element={<Articles />} />

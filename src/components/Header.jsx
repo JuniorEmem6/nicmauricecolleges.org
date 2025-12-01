@@ -49,6 +49,9 @@ const Header = () => {
           <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
             <Link to="/about">About</Link>
           </li>
+           <li className="hover:text-blue-600 text-gray-500 text-[16px] md:text-[17px]">
+            <Link to="/about">Academy</Link>
+          </li>
         </ul>
 
         {/* Publish Button (visible on larger screens) */}
