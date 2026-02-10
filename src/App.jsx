@@ -32,12 +32,16 @@ import MedicalSurgicalNursingJournal from "./Pages/journals/MedicalSurgical";
 import MaternalChildJournal from "./Pages/journals/MaternalJournal";
 import NSUNProfilePage from "./Pages/journals/Nsu";
 import ICVSPage from "./Pages/institute/Computer";
-import AcademyPage from "./Pages/Academy";
-import StudentDashboard from "./Pages/Student";
-import TeacherDashboard from "./Pages/Teacher";
+import { AcademyPage } from "./Pages/Academy";
 import RegisterPage from "./Pages/Register";
-import LoginPage from "./Pages/Login";
+import LoginPage from "./Pages/PortalLogin";
 import ProtectedRoute from "./components/ProtectRoute";
+import Applicant from "./Pages/Applicant";
+import PortalDashboard from "./components/Student/PortalDashboard";
+import NursingDepartment from "./components/Academy/NursingDepartment";
+import AdmissionsSection from "./components/Academy/AcademicSection";
+import AboutUsSection from "./components/Academy/About";
+
 
 const App = () => {
   return (
@@ -45,22 +49,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/academy" element={<AcademyPage />} />
-        <Route
-          path="/teacher"
-          element={
-            <ProtectedRoute>
-              <TeacherDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/student"
-          element={
-            <ProtectedRoute>
-              <StudentDashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/enroll" element={<Applicant />} />
+        <Route path="/portal" element={<PortalDashboard />} />
+        <Route path="/specializations" element={<NursingDepartment />} />
+        <Route path="/admissions" element={<AdmissionsSection />} />
+        <Route path="/about" element={<AboutUsSection />} />
+
+        
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/publish" element={<PublishArticle />} />

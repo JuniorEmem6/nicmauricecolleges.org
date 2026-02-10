@@ -22,75 +22,11 @@ import {
   X,
   MapPin,
 } from "lucide-react";
-
-// Default mock data for fallback
-const defaultMockData = [
-  {
-    id: 1,
-    class_id: "cls_001",
-    course_code: "Mathematics 101",
-    department: "Science & Technology",
-    description: "Introduction to Calculus and Algebra",
-    schedule: "2024-01-15 at 14:00",
-    room: "Room 301",
-    student_count: 25,
-    assignments: 3,
-    resources: 5,
-    recordings: [
-      {
-        id: 1,
-        title: "Introduction to Calculus",
-        date: "2024-01-10",
-        duration: "45:30",
-        views: 15,
-      },
-    ],
-  },
-  {
-    id: 2,
-    class_id: "cls_002",
-    course_code: "Physics 201",
-    department: "Science & Technology",
-    description: "Advanced Physics Concepts",
-    schedule: "2024-01-16 at 10:00",
-    room: "Lab Building A",
-    student_count: 18,
-    assignments: 2,
-    resources: 7,
-    recordings: [],
-  },
-  {
-    id: 3,
-    class_id: "cls_003",
-    course_code: "English Literature",
-    department: "Humanities",
-    description: "Classic and Modern Literature Analysis",
-    schedule: "2024-01-17 at 13:00",
-    room: "Room 205",
-    student_count: 22,
-    assignments: 4,
-    resources: 3,
-    recordings: [
-      {
-        id: 2,
-        title: "Shakespeare Analysis",
-        date: "2024-01-08",
-        duration: "38:15",
-        views: 12,
-      },
-      {
-        id: 3,
-        title: "Modern Poetry",
-        date: "2024-01-05",
-        duration: "42:20",
-        views: 8,
-      },
-    ],
-  },
-];
+import { io } from "socket.io-client";
 
 const ClassesSection = ({ searchQuery, token, loading, mockData }) => {
   const [classes, setClasses] = useState([]);
+  const [socket, setSocket] = useState(null);
   const [filteredClasses, setFilteredClasses] = useState([]);
   const [selectedClass, setSelectedClass] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -119,6 +55,20 @@ const ClassesSection = ({ searchQuery, token, loading, mockData }) => {
     room: "",
     student_count: 0,
   });
+
+  useEffect(() => {
+    const s = io("http://localhost:5000");
+
+    s.on("connect", () => {
+      console.log("Connected to server:", s.id);
+    });
+
+    s.on("disconnect", () => {
+      console.log("Server disconnected");
+    });
+
+    setSocket(s);
+  }, []);
 
   // Initialize classes with safe defaults
   useEffect(() => {
@@ -455,100 +405,101 @@ const ClassesSection = ({ searchQuery, token, loading, mockData }) => {
       setSelectedClass(classItem);
       setShowStreamModal(true);
 
-      // 2. Setup WebSocket connection
-      const ws = new WebSocket("ws://localhost:5000/"); // change URL to your backend
-      ws.onopen = () => {
-        console.log("Connected to backend WebSocket for streaming");
-      };
-      ws.onerror = (err) => {
-        console.error("WebSocket error:", err);
-        alert("WebSocket connection failed. Streaming won't work.");
-      };
-
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        alert(
-          "Your browser doesn't support video streaming. Please use a modern browser like Chrome, Firefox, or Edge."
-        );
-        return;
-      }
+      // if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      //   alert(
+      //     "Your browser doesn't support video streaming. Please use a modern browser like Chrome, Firefox, or Edge."
+      //   );
+      //   return;
+      // }
 
       // 1. Get user media
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
+      // const stream = await navigator.mediaDevices.getUserMedia({
+      //   video: true,
+      //   audio: true,
+      // });
 
-      streamRef.current = stream;
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
-
-      
+      // streamRef.current = stream;
+      // if (videoRef.current) {
+      //   videoRef.current.srcObject = stream;
+      // }
 
       // 3. Setup MediaRecorder
-      const options = { mimeType: "video/webm;codecs=vp9,opus" };
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options.mimeType = "video/webm;codecs=vp8,opus";
-      }
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options.mimeType = "video/webm";
-      }
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options.mimeType = "video/mp4";
-      }
+      // const options = { mimeType: "video/webm;codecs=vp9,opus" };
+      // if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      //   options.mimeType = "video/webm;codecs=vp8,opus";
+      // }
+      // if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      //   options.mimeType = "video/webm";
+      // }
+      // if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      //   options.mimeType = "video/mp4";
+      // }
 
-      const mediaRecorder = new MediaRecorder(stream, options);
-      mediaRecorderRef.current = mediaRecorder;
-      setRecordedChunks([]);
+      // const mediaRecorder = new MediaRecorder(stream, options);
+      // mediaRecorderRef.current = mediaRecorder;
+      // setRecordedChunks([]);
 
       // 4. Send data chunks to WebSocket
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          // Send raw video blob to backend
-          if (ws.readyState === WebSocket.OPEN) {
-            ws.send(event.data);
-          }
+      // mediaRecorder.ondataavailable = (event) => {
+      //   if (event.data.size > 0) {
+      //     const reader = new FileReader();
 
-          setRecordedChunks((prev) => [...prev, event.data]);
-        }
-      };
+      //     reader.onload = () => {
+      //       // Send ArrayBuffer to socket.io
+      //       socket.emit("class-started", {
+      //         teacherId: mockData.teacher_id,
+      //         classId: mockData.class_id,
+      //       });
+      //     };
+
+      //     reader.readAsArrayBuffer(event.data);
+
+      //     setRecordedChunks((prev) => [...prev, event.data]);
+      //     socket.emit("signal", {to: "", data: ""})
+      //   }
+      // };
 
       // 5. Handle stopping the recorder
-      mediaRecorder.onstop = () => {
-        console.log("Live stream stopped");
+      // mediaRecorder.onstop = () => {
+      //   console.log("Live stream stopped");
 
-        if (recordedChunks.length > 0 && selectedClass) {
-          const newRecording = {
-            id: Date.now(),
-            title: `${
-              selectedClass.course_code
-            } - ${new Date().toLocaleDateString()}`,
-            date: new Date().toISOString().split("T")[0],
-            duration: "Live Session",
-            views: 0,
-          };
+      //   if (recordedChunks.length > 0 && selectedClass) {
+      //     const newRecording = {
+      //       id: Date.now(),
+      //       title: `${
+      //         selectedClass.course_code
+      //       } - ${new Date().toLocaleDateString()}`,
+      //       date: new Date().toISOString().split("T")[0],
+      //       duration: "Live Session",
+      //       views: 0,
+      //     };
 
-          setClasses((prev) =>
-            prev.map((cls) =>
-              cls.id === selectedClass.id
-                ? {
-                    ...cls,
-                    recordings: [
-                      newRecording,
-                      ...getClassRecordings(cls),
-                    ].slice(0, 10),
-                  }
-                : cls
-            )
-          );
-        }
+      //     setClasses((prev) =>
+      //       prev.map((cls) =>
+      //         cls.id === selectedClass.id
+      //           ? {
+      //               ...cls,
+      //               recordings: [
+      //                 newRecording,
+      //                 ...getClassRecordings(cls),
+      //               ].slice(0, 10),
+      //             }
+      //           : cls
+      //       )
+      //     );
+      //   }
 
-        // Close WebSocket when done
-        if (ws.readyState === WebSocket.OPEN) ws.close();
-      };
+      //   // Close WebSocket when done
+      //   if (ws.readyState === WebSocket.OPEN) ws.close();
+      // };
 
       // 6. Start streaming (set small timeslice for near real-time)
-      mediaRecorder.start(1000); // chunks every 1 second
+      // mediaRecorder.start(1000); // chunks every 1 second
+
+      socket.emit("start-class", mockData);
+      socket.on("class-started", (data) => {
+        console.log(data);
+      });
     } catch (error) {
       console.error("Error accessing media devices:", error);
       if (error.name === "NotAllowedError") {
@@ -819,26 +770,6 @@ const ClassesSection = ({ searchQuery, token, loading, mockData }) => {
             <Plus className="w-4 h-4 mr-2" />
             Create New Class
           </button>
-        </div>
-      </div>
-
-      {/* Controls */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 p-4 bg-gray-50 rounded-lg">
-        <div className="flex items-center space-x-4 mb-3 sm:mb-0">
-          <span className="text-sm text-gray-600">Sort by:</span>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="course_code">Name</option>
-            <option value="student_count">Students</option>
-            <option value="schedule">Schedule</option>
-          </select>
-        </div>
-
-        <div className="text-sm text-gray-600">
-          {filteredClasses.length} of {classes.length} classes
         </div>
       </div>
 
