@@ -2,12 +2,12 @@ import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import React from "react";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({route, children }) => {
   const token = Cookies.get("token");
 
   if (!token) {
     // No token → redirect to login
-    return <Navigate to="/login" replace />;
+    return <Navigate to={`${route}`} replace />;
   }
 
   // Token exists → pass it to children

@@ -75,7 +75,7 @@ const Home = () => {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="/explore"
+                  href="/journal"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-colors"
                 >
                   Explore Journals
@@ -85,15 +85,15 @@ const Home = () => {
               {/* Stats */}
               <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 ml-[-50px]">
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-blue-600">500+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-blue-600">100+</div>
                   <div className="text-sm text-gray-600">Journals</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-blue-600">10K+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-blue-600">1K+</div>
                   <div className="text-sm text-gray-600">Articles</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-blue-600">50+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-blue-600">10+</div>
                   <div className="text-sm text-gray-600">Countries</div>
                 </div>
                 <div className="text-center">

@@ -33,7 +33,6 @@ import MaternalChildJournal from "./Pages/journals/MaternalJournal";
 import NSUNProfilePage from "./Pages/journals/Nsu";
 import ICVSPage from "./Pages/institute/Computer";
 import { AcademyPage } from "./Pages/Academy";
-import RegisterPage from "./Pages/Register";
 import LoginPage from "./Pages/PortalLogin";
 import ProtectedRoute from "./components/ProtectRoute";
 import Applicant from "./Pages/Applicant";
@@ -41,7 +40,11 @@ import PortalDashboard from "./components/Student/PortalDashboard";
 import NursingDepartment from "./components/Academy/NursingDepartment";
 import AdmissionsSection from "./components/Academy/AcademicSection";
 import AboutUsSection from "./components/Academy/About";
-
+import AdmissionsDashboard from "./Pages/Admin/AdmissionOffer";
+import Login from "./Pages/Admin/AdminLogin";
+import TeacherLoginPage from "./components/Teacher/Login";
+import TeacherDashboard from "./components/Teacher/TeacherPortal";
+import HRDashboard from "./Pages/Admin/HrOfficer";
 
 const App = () => {
   return (
@@ -49,15 +52,43 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/academy" element={<AcademyPage />} />
-        <Route path="/enroll" element={<Applicant />} />
-        <Route path="/portal" element={<PortalDashboard />} />
-        <Route path="/specializations" element={<NursingDepartment />} />
-        <Route path="/admissions" element={<AdmissionsSection />} />
-        <Route path="/about" element={<AboutUsSection />} />
+        <Route
+          path="/academy/specializations"
+          element={<NursingDepartment />}
+        />
+        <Route path="/academy/admissions" element={<AdmissionsSection />} />
+        <Route path="/academy/about" element={<AboutUsSection />} />
+        <Route path="/academy/enroll" element={<Applicant />} />
+        <Route path="/academy/login" element={<LoginPage />} />
+        <Route
+          path="/academy/portal"
+          element={
+            <ProtectedRoute route="/academy/login">
+              <PortalDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/academy/admin/admission"
+          element={
+            <ProtectedRoute route="/academy/admin/login">
+              <AdmissionsDashboard />
+            </ProtectedRoute>
+          }
+        />
 
-        
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/academy/admin/hr"
+          element={
+            <ProtectedRoute route="/academy/admin/login">
+              <HRDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/academy/admin/login" element={<Login />} />
+        <Route path="/academy/teacher/login" element={<TeacherLoginPage />} />
+        <Route path="/academy/teacher/portal" element={<TeacherDashboard />} />
+
         <Route path="/publish" element={<PublishArticle />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/institute" element={<Institute />} />

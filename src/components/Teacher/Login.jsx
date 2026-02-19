@@ -15,23 +15,26 @@ import {
   FaExclamationTriangle,
   FaCheckCircle,
   FaShieldAlt,
-  FaUserNurse,
-  FaHospital,
-  FaStethoscope
+  FaChalkboardTeacher,
+  FaBookReader,
+  FaClipboardList,
+  FaUsers,
+  FaRegCalendarAlt,
+  FaChartLine
 } from "react-icons/fa";
 
-const LoginPage = () => {
+const TeacherLoginPage = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [formData, setFormData] = useState({
-    studentId: "",
+    email: "",
     password: ""
   });
   const [errors, setErrors] = useState({});
-   const token = Cookies.get("token");
+  const token = Cookies.get("token");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,16 +53,18 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-      if (token) {
-        navigate("/academy/admin/admission");
-      }
-    }, [token, navigate]);
+    if (token) {
+      navigate("/academy/teacher/dashboard");
+    }
+  }, [token, navigate]);
 
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.studentId) {
-      newErrors.studentId = "Student ID is required";
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
     }
     
     if (!formData.password) {
@@ -81,8 +86,8 @@ const LoginPage = () => {
     setLoginError("");
 
     try {
-      const response = await axios.post("http://localhost:4000/student/login", {
-        studentId: formData.studentId,
+      const response = await axios.post("http://localhost:4000/teacher/login", {
+        email: formData.email,
         password: formData.password,
       });
 
@@ -95,17 +100,22 @@ const LoginPage = () => {
           sameSite: "Strict",
         });
 
-        // Store student info
-        Cookies.set("data", JSON.stringify(data.student), {
+        // Store teacher info
+        Cookies.set("teacherData", JSON.stringify(data.teacher), {
           expires: rememberMe ? 7 : 1,
         });
 
-        // Redirect to student dashboard
-        navigate("/academy/portal");
+        // Store user role
+        Cookies.set("userRole", "teacher", {
+          expires: rememberMe ? 7 : 1,
+        });
+
+        // Redirect to teacher dashboard
+        navigate("/academy/teacher/dashboard");
       }
     } catch (error) {
       if (error.response) {
-        setLoginError(error.response.data.message || "Invalid student ID or password");
+        setLoginError(error.response.data.message || "Invalid email or password");
       } else if (error.request) {
         setLoginError("Unable to connect to server. Please check your internet connection.");
       } else {
@@ -117,29 +127,29 @@ const LoginPage = () => {
   };
 
   const handleForgotPassword = () => {
-    navigate("/forgot-password");
+    navigate("/teacher/forgot-password");
   };
 
   const benefits = [
     {
-      icon: <FaStethoscope className="text-blue-600" />,
-      title: "Clinical Resources",
-      description: "Access nursing procedures, drug guides, and clinical tools"
+      icon: <FaChalkboardTeacher className="text-blue-600" />,
+      title: "Course Management",
+      description: "Create and manage courses, upload materials, and track student progress"
     },
     {
-      icon: <FaHospital className="text-purple-600" />,
-      title: "Clinical Schedules",
-      description: "View and manage your clinical rotations and shifts"
+      icon: <FaClipboardList className="text-purple-600" />,
+      title: "Grade Management",
+      description: "Record and manage student grades, provide feedback and comments"
     },
     {
-      icon: <FaUserNurse className="text-green-600" />,
-      title: "Faculty Support",
-      description: "Direct communication with nursing instructors and mentors"
+      icon: <FaUsers className="text-green-600" />,
+      title: "Student Oversight",
+      description: "Monitor student attendance, participation, and academic performance"
     },
     {
-      icon: <FaShieldAlt className="text-red-600" />,
-      title: "Secure Platform",
-      description: "HIPAA-compliant environment for all your academic needs"
+      icon: <FaRegCalendarAlt className="text-red-600" />,
+      title: "Schedule Management",
+      description: "Manage class schedules, office hours, and clinical rotations"
     }
   ];
 
@@ -160,15 +170,8 @@ const LoginPage = () => {
               <div className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                 Nicmaurice Nursing
               </div>
-              <div className="text-sm text-gray-500">Student Portal Access</div>
+              <div className="text-sm text-gray-500">Faculty Portal Access</div>
             </div>
-          </Link>
-          <Link 
-            to="/enroll" 
-            className="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 font-medium text-sm shadow-md hover:shadow-lg transition-all"
-          >
-            Apply for Admission
-            <FaArrowRight className="inline ml-2" />
           </Link>
         </motion.header>
 
@@ -184,40 +187,40 @@ const LoginPage = () => {
               {/* Welcome Header */}
               <div className="text-center mb-10">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Welcome Back
+                  Faculty Login
                 </h1>
                 <p className="text-gray-600 text-lg">
-                  Sign in with your Student ID to continue your nursing education journey
+                  Sign in with your faculty email to access the teacher portal
                 </p>
               </div>
 
               {/* Login Form */}
               <form onSubmit={handleSubmit} className="space-y-7">
-                {/* Student ID Field */}
+                {/* Email Field */}
                 <div>
                   <label className="block text-gray-700 mb-2.5 font-semibold">
-                    Student ID
+                    Faculty Email
                   </label>
                   <div className="relative">
                     <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                       <FaUser className="text-gray-400" />
                     </div>
                     <input
-                      type="text"
-                      name="studentId"
-                      value={formData.studentId}
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleChange}
                       className={`w-full pl-12 pr-4 py-3.5 border-2 rounded-xl focus:ring-3 focus:ring-blue-500/30 focus:border-blue-500 transition-all ${
-                        errors.studentId 
+                        errors.email 
                           ? "border-red-400" 
                           : "border-gray-300 hover:border-blue-400"
                       }`}
-                      placeholder="Enter your student ID (e.g., 2024001234)"
+                      placeholder="Enter your faculty email (e.g., professor@nicmaurice.edu)"
                       disabled={isLoading}
                     />
-                    {errors.studentId && (
+                    {errors.email && (
                       <p className="text-red-500 text-sm mt-2 font-medium">
-                        {errors.studentId}
+                        {errors.email}
                       </p>
                     )}
                   </div>
@@ -319,16 +322,16 @@ const LoginPage = () => {
                   ) : (
                     <span className="flex items-center justify-center text-lg">
                       <FaSignInAlt className="mr-3" />
-                      Access Student Portal
+                      Access Faculty Portal
                     </span>
                   )}
                 </button>
               </form>
 
-              {/* Student ID Format Help */}
+              {/* Faculty Email Format Help */}
               <div className="mt-6 text-center">
                 <p className="text-sm text-gray-500">
-                  Your Student ID is the 10-digit number on your admission letter
+                  Use your official faculty email address provided by the academy
                 </p>
               </div>
 
@@ -342,17 +345,17 @@ const LoginPage = () => {
                 <div className="flex items-start">
                   <FaExclamationTriangle className="text-blue-600 mt-0.5 mr-4 text-lg flex-shrink-0" />
                   <div>
-                    <p className="text-blue-900 font-semibold mb-1">Security Notice</p>
+                    <p className="text-blue-900 font-semibold mb-1">Faculty Security Notice</p>
                     <p className="text-blue-800 text-sm">
-                      This portal is for authorized Nicmaurice Nursing Academy students only. 
-                      Never share your login credentials with anyone.
+                      This portal is for authorized Nicmaurice Nursing Academy faculty members only. 
+                      Your access grants you permission to view and manage student information.
                     </p>
                   </div>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Benefits Section - Keep the same as original */}
+            {/* Benefits Section */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -363,25 +366,25 @@ const LoginPage = () => {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 text-white shadow-2xl">
                 <div className="flex items-center mb-8">
                   <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm mr-4">
-                    <FaGraduationCap className="text-2xl" />
+                    <FaChalkboardTeacher className="text-2xl" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold">Nursing Student Portal</h2>
-                    <p className="text-blue-100 opacity-90">Your academic hub for success</p>
+                    <h2 className="text-2xl font-bold">Faculty Portal</h2>
+                    <p className="text-blue-100 opacity-90">Empowering nursing educators</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <FaCheckCircle className="text-green-300 mr-3 text-lg" />
-                    <span className="text-blue-100">Access course materials 24/7</span>
+                    <span className="text-blue-100">Manage courses and curriculum</span>
                   </div>
                   <div className="flex items-center">
                     <FaCheckCircle className="text-green-300 mr-3 text-lg" />
-                    <span className="text-blue-100">Submit clinical assignments securely</span>
+                    <span className="text-blue-100">Track student progress and grades</span>
                   </div>
                   <div className="flex items-center">
                     <FaCheckCircle className="text-green-300 mr-3 text-lg" />
-                    <span className="text-blue-100">Track academic progress in real-time</span>
+                    <span className="text-blue-100">Communicate with students and staff</span>
                   </div>
                 </div>
               </div>
@@ -389,7 +392,7 @@ const LoginPage = () => {
               {/* Benefits Grid */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Everything You Need
+                  Faculty Tools & Resources
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-5">
                   {benefits.map((benefit, index) => (
@@ -420,35 +423,22 @@ const LoginPage = () => {
               {/* Stats Card */}
               <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-6 border border-emerald-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-5">
-                  Platform at a Glance
+                  Faculty Dashboard at a Glance
                 </h3>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-emerald-700">2,500+</div>
-                    <div className="text-sm text-gray-600 mt-1">Active Students</div>
+                    <div className="text-3xl font-bold text-emerald-700">45+</div>
+                    <div className="text-sm text-gray-600 mt-1">Faculty Members</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-emerald-700">95%</div>
-                    <div className="text-sm text-gray-600 mt-1">Satisfaction</div>
+                    <div className="text-3xl font-bold text-emerald-700">12</div>
+                    <div className="text-sm text-gray-600 mt-1">Departments</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-emerald-700">24/7</div>
-                    <div className="text-sm text-gray-600 mt-1">Support</div>
+                    <div className="text-3xl font-bold text-emerald-700">150+</div>
+                    <div className="text-sm text-gray-600 mt-1">Courses</div>
                   </div>
                 </div>
-              </div>
-
-              {/* CTA */}
-              <div className="text-center pt-4">
-                <p className="text-gray-600 mb-5 text-lg">
-                  Don't have a student ID yet?
-                </p>
-                <Link to="/academy/enroll">
-                  <button className="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-bold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                    Apply for Nursing Program
-                    <FaArrowRight className="ml-3" />
-                  </button>
-                </Link>
               </div>
             </motion.div>
           </div>
@@ -458,4 +448,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default TeacherLoginPage;
