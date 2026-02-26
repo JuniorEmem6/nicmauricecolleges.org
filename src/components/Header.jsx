@@ -15,7 +15,7 @@ const Header = () => {
     { name: "Institutes", path: "/institute" },
     { name: "Geni-Nexus", path: "/archive" },
     { name: "About", path: "/about" },
-    { name: "Academy", path: "/academy" },
+    { name: "Seminar", path: "/seminar" },
   ];
 
   // Close mobile menu when route changes

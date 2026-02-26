@@ -54,7 +54,7 @@ export const Header = () => {
         <div className="hidden lg:flex space-x-8">
           {["Home", "Specializations", "Admissions", "About"].map(
             (item) => (
-             <Link to={`/${item === "Home" ? "academy" : item.toLocaleLowerCase()}`}>
+             <Link to={`/academy/${item === "Home" ? "/" : item.toLocaleLowerCase()}`}>
               <h1
                 key={item}
                 className="text-gray-700 hover:text-blue-600 transition-colors duration-200 text-sm font-medium hover:font-semibold"
@@ -67,12 +67,12 @@ export const Header = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <Link to="/login">
+          <Link to="/academy/login">
             <button className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium hidden sm:block">
               Student Portal
             </button>
           </Link>
-          <Link to="/enroll">
+          <Link to="/academy/enroll">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

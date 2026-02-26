@@ -38,19 +38,20 @@ export const AcademyPage = () => {
       features: ["Basic Patient Care", "Vital Signs", "Medical Terminology"],
     },
     {
-      title: "Advanced Practice Nursing",
-      duration: "12 Months",
-      level: "Advanced",
-      icon: <FaUserNurse className="h-6 w-6" />,
-      features: ["Clinical Diagnosis", "Treatment Planning", "Case Management"],
-    },
-    {
       title: "Critical Care Nursing",
       duration: "8 Months",
       level: "Intermediate",
       icon: <FaHeartbeat className="h-6 w-6" />,
       features: ["Emergency Response", "ICU Protocols", "Life Support Systems"],
     },
+    {
+      title: "Advanced Practice Nursing",
+      duration: "12 Months",
+      level: "Advanced",
+      icon: <FaUserNurse className="h-6 w-6" />,
+      features: ["Clinical Diagnosis", "Treatment Planning", "Case Management"],
+    },
+
     {
       title: "Pediatric Nursing",
       duration: "7 Months",
@@ -152,16 +153,16 @@ export const AcademyPage = () => {
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-               <Link to="/enroll">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-                >
-                  <FaGraduationCap />
-                  Start Your Journey
-                </motion.button>
-               </Link>
+                <Link to="/academy/enroll">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                  >
+                    <FaGraduationCap />
+                    Start Your Journey
+                  </motion.button>
+                </Link>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -169,7 +170,7 @@ export const AcademyPage = () => {
                   className="border-2 border-blue-600 text-blue-600 px-8 py-3.5 rounded-xl font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
                 >
                   <FaVideo />
-                  Virtual Tour
+                  Campus Tour
                 </motion.button>
               </div>
 
@@ -180,11 +181,11 @@ export const AcademyPage = () => {
                   <div className="text-sm text-gray-600">NCLEX Pass Rate</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-blue-600">2,500+</div>
+                  <div className="text-2xl font-bold text-blue-600">500+</div>
                   <div className="text-sm text-gray-600">Nursing Alumni</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-blue-600">100+</div>
+                  <div className="text-2xl font-bold text-blue-600">50+</div>
                   <div className="text-sm text-gray-600">Clinical Partners</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-xl shadow-sm">
@@ -409,40 +410,24 @@ export const AcademyPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center ">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl flex items-center gap-2"
-              >
-                <FaGraduationCap />
-                Apply for Admission
-              </motion.button>
+              <Link to="/academy/enroll">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl flex items-center gap-2"
+                >
+                  <FaGraduationCap />
+                  Apply for Admission
+                </motion.button>
+              </Link>
 
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-white text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors"
               >
                 Schedule a Consultation
-              </motion.button>
-            </div>
-
-            <div className="mt-10 grid grid-cols-3 gap-10 max-w-md mx-auto">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">
-                  No Application Fee
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">
-                  Flexible Start Dates
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">
-                  Financial Aid Available
-                </div>
-              </div>
+              </motion.button> */}
             </div>
           </motion.div>
         </div>

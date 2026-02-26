@@ -91,7 +91,7 @@ const AboutUsSection = () => {
       id: "mission",
       title: "Our Mission",
       description:
-        "To educate and empower the next generation of nursing leaders through innovative education, compassionate care, and evidence-based practice.",
+        "To globally educate and empower the next generation of nursing leaders through innovative education, compassionate care, and evidence-based practice.",
       icon: <FaHeartbeat />,
       color: "from-red-500 to-pink-500",
     },
@@ -99,7 +99,7 @@ const AboutUsSection = () => {
       id: "vision",
       title: "Our Vision",
       description:
-        "To be a nationally recognized center of excellence in nursing education, research, and community health leadership.",
+        "To be an international recognized center of excellence in nursing education, clinical practices, research, and community health leadership.",
       icon: <FaLightbulb />,
       color: "from-amber-500 to-orange-500",
     },
@@ -115,7 +115,7 @@ const AboutUsSection = () => {
       id: "compassion",
       title: "Compassion",
       description:
-        "Cultivating empathy and cultural competence to provide holistic, patient-centered care in diverse communities.",
+        "Cultivating empathy and cultural competence to provide holistic, patient-centered care in diverse communities globally.",
       icon: <FaHandHoldingHeart />,
       color: "from-purple-500 to-pink-500",
     },
@@ -140,7 +140,7 @@ const AboutUsSection = () => {
   // Statistics
   const statistics = [
     {
-      value: "45+",
+      value: "25+",
       label: "Years of Excellence",
       icon: <FaChartLine />,
       color: "bg-blue-500",
@@ -170,7 +170,7 @@ const AboutUsSection = () => {
       color: "bg-red-500",
     },
     {
-      value: "$2.5M+",
+      value: "N2.5M+",
       label: "Research Funding",
       icon: <FaFlask />,
       color: "bg-indigo-500",
@@ -180,31 +180,31 @@ const AboutUsSection = () => {
   // Leadership Team
   const leadershipTeam = [
     {
-      name: "Dr. Elizabeth Thornton",
-      title: "Dean, College of Nursing",
+      name: "Prof. Mildred John",
+      title: "Fmr. Dean, Faculty of Allied Health Science, Uni. of Calabar",
       expertise: "Nursing Education & Leadership",
-      education: "PhD, University of Pennsylvania",
-      experience: "28 years",
+      education: "RN, PhD",
+      experience: "35 years",
       quote:
         "We don't just teach nursing; we cultivate healers, leaders, and innovators.",
       imageColor: "bg-blue-100",
     },
     {
-      name: "Prof. Michael Rodriguez",
-      title: "Director of Clinical Education",
-      expertise: "Critical Care & Simulation",
-      education: "DNP, Johns Hopkins University",
-      experience: "22 years",
+      name: "Dr. Augustina Chikaodili Isabu",
+      title: "Department of Community Health Nursing",
+      expertise: "Community Health Nursing",
+      education: "PhD Community Health Science, PhD Public Health Education",
+      experience: "30+ years",
       quote:
         "Hands-on experience transforms theoretical knowledge into clinical excellence.",
       imageColor: "bg-purple-100",
     },
     {
-      name: "Dr. Sarah Chen",
-      title: "Research Director",
-      expertise: "Nursing Informatics & Research",
-      education: "PhD, University of California",
-      experience: "18 years",
+      name: "Dr. Akon Emmanunel Ndiok",
+      title: "Lecturer, Department of Nursing Science",
+      expertise: "Medical Surgical Nursing/Cancer and Terminal Diseases Palliative Care",
+      education: "RN, PhD",
+      experience: "20+ years",
       quote:
         "Research is the bridge between current practice and future possibilities.",
       imageColor: "bg-green-100",
@@ -358,11 +358,11 @@ const AboutUsSection = () => {
               </motion.div>
 
               <h1 className="text-5xl font-bold mb-6 leading-tight">
-                Excellence in Nursing Education Since 1978
+                Excellence in Nursing Education Since 1999
               </h1>
 
               <p className="text-xl text-blue-100 mb-8 max-w-3xl">
-                For over four decades, we have been shaping the future of
+                For over three decades, we have been shaping the future of
                 healthcare by educating compassionate, skilled nurses who make a
                 difference in communities worldwide.
               </p>
@@ -385,7 +385,7 @@ const AboutUsSection = () => {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors"
                 >
-                  Virtual Campus Tour
+                  Campus Tour
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -609,7 +609,7 @@ const AboutUsSection = () => {
               </div>
 
               {/* Social Media */}
-              <div className="mb-8">
+              {/* <div className="mb-8">
                 <h3 className="font-bold text-gray-900 mb-4">
                   Connect With Us
                 </h3>
@@ -626,7 +626,7 @@ const AboutUsSection = () => {
                     </motion.a>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Map/Image Placeholder */}
               <motion.div
@@ -771,7 +771,6 @@ const AboutUsSection = () => {
                         >
                           <option value="">Select a subject</option>
                           <option value="admissions">Admissions Inquiry</option>
-                          <option value="financial-aid">Financial Aid</option>
                           <option value="academics">Academic Programs</option>
                           <option value="clinical">Clinical Placements</option>
                           <option value="facilities">Campus Facilities</option>
@@ -853,7 +852,7 @@ const AboutUsSection = () => {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-white/10 rounded-full text-sm">
-                        UK
+                        India
                       </span>
                       <span className="px-3 py-1 bg-white/10 rounded-full text-sm">
                         Canada

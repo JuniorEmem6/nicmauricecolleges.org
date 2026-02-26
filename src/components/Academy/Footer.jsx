@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-sm">
-            <p>© 2024 Nicmaurice Nursing Academy. All rights reserved.</p>
+            <p>© 2026 Nicmaurice Nursing Academy. All rights reserved.</p>
             <p className="mt-2">
               Accredited by the Commission on Collegiate Nursing Education
               (CCNE)

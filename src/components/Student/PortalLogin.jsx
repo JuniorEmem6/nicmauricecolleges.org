@@ -164,7 +164,7 @@ const LoginPage = () => {
             </div>
           </Link>
           <Link 
-            to="/enroll" 
+            to="/academy/enroll" 
             className="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 font-medium text-sm shadow-md hover:shadow-lg transition-all"
           >
             Apply for Admission

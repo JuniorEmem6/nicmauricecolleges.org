@@ -28,6 +28,7 @@ import {
   FaShareAlt,
   FaBookOpen,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NursingDepartment = () => {
   const [activeProgram, setActiveProgram] = useState("bsn");
@@ -409,20 +410,15 @@ const NursingDepartment = () => {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-white text-blue-600 rounded-xl font-bold hover:bg-gray-100 transition-colors"
-                >
-                  Apply Now
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors"
-                >
-                  Request Information
-                </motion.button>
+                <Link to="/academy/enroll">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-3 bg-white text-blue-600 rounded-xl font-bold hover:bg-gray-100 transition-colors"
+                  >
+                    Apply Now
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -454,7 +450,7 @@ const NursingDepartment = () => {
                   label: "Clinical Training",
                   icon: <FaHospital />,
                 },
-                { id: "resources", label: "Resources", icon: <FaBookOpen /> },
+                // { id: "resources", label: "Resources", icon: <FaBookOpen /> },
               ].map((tab) => (
                 <motion.button
                   key={tab.id}
@@ -504,7 +500,7 @@ const NursingDepartment = () => {
               },
               {
                 label: "Research Grants",
-                value: "$2.5M+",
+                value: "N2.5M+",
                 icon: <FaChartLine />,
                 color: "bg-rose-500",
               },
@@ -530,7 +526,7 @@ const NursingDepartment = () => {
             ))}
           </motion.div>
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {/* Programs Tab */}
             {activeTab === "programs" && (
               <motion.div
@@ -607,7 +603,7 @@ const NursingDepartment = () => {
                 </div>
 
                 {/* Active Program Details */}
-                <AnimatePresence mode="wait">
+                <AnimatePresence>
                   <motion.div
                     key={activeProgram}
                     initial={{ opacity: 0, height: 0 }}
