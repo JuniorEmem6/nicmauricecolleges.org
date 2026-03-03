@@ -1295,76 +1295,6 @@ Phone: +234 800 123 4567
                     </div>
                   </div>
 
-                  {/* Accommodation */}
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-4">
-                      Accommodation Required?
-                    </label>
-                    <div className="flex flex-wrap gap-6">
-                      {[
-                        {
-                          value: "yes",
-                          label: "Yes, book accommodation",
-                          price: "₦35,000/night",
-                        },
-                        { value: "no", label: "No, I will arrange my own" },
-                      ].map((option) => (
-                        <label
-                          key={option.value}
-                          className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-white transition-all cursor-pointer flex-1"
-                        >
-                          <input
-                            type="radio"
-                            name="accommodation"
-                            value={option.value}
-                            checked={formData.accommodation === option.value}
-                            onChange={handleInputChange}
-                            className="w-4 h-4 text-emerald-600"
-                          />
-                          <div>
-                            <span className="text-sm text-slate-700 block">
-                              {option.label}
-                            </span>
-                            {option.price && (
-                              <span className="text-xs text-emerald-600">
-                                {option.price}
-                              </span>
-                            )}
-                          </div>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Dietary Requirements */}
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Dietary Requirements
-                    </label>
-                    <textarea
-                      name="dietary"
-                      value={formData.dietary}
-                      onChange={handleInputChange}
-                      rows="2"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all"
-                      placeholder="Please specify any dietary restrictions or allergies"
-                    ></textarea>
-                  </div>
-
-                  {/* Special Needs */}
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Accessibility or Special Needs
-                    </label>
-                    <textarea
-                      name="specialNeeds"
-                      value={formData.specialNeeds}
-                      onChange={handleInputChange}
-                      rows="2"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all"
-                      placeholder="Please let us know if you require any special assistance"
-                    ></textarea>
-                  </div>
 
                   {/* Fee Summary */}
                   <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-4 border border-emerald-100">
@@ -1732,7 +1662,7 @@ Phone: +234 800 123 4567
                     </span>
                     <div className="flex items-center">
                       <span className="font-semibold text-slate-800 mr-2">
-                        National Nursing Conference 2026
+                        Nic Maurice 
                       </span>
                       <button
                         onClick={() =>
@@ -1760,7 +1690,7 @@ Phone: +234 800 123 4567
                     </span>
                     <div className="flex items-center">
                       <span className="font-mono font-bold text-lg text-slate-800 mr-2">
-                        2034567890
+                        2035451970
                       </span>
                       <button
                         onClick={() =>
@@ -1770,27 +1700,6 @@ Phone: +234 800 123 4567
                         title="Copy account number"
                       >
                         {copySuccess === "accountNumber" ? (
-                          <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                        ) : (
-                          <Copy className="w-4 h-4 text-blue-600" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Sort Code */}
-                  <div className="flex items-center justify-between py-2">
-                    <span className="text-sm text-slate-600">Sort Code:</span>
-                    <div className="flex items-center">
-                      <span className="font-mono font-semibold text-slate-800 mr-2">
-                        011234567
-                      </span>
-                      <button
-                        onClick={() => handleCopy("011234567", "sortCode")}
-                        className="p-1.5 hover:bg-blue-100 rounded-lg transition-colors"
-                        title="Copy sort code"
-                      >
-                        {copySuccess === "sortCode" ? (
                           <CheckCircle2 className="w-4 h-4 text-blue-600" />
                         ) : (
                           <Copy className="w-4 h-4 text-blue-600" />
