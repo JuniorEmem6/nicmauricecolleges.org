@@ -29,7 +29,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/wjwihpr">Read More..</Link>
+                <Link to="/journal/wjwihpr">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
@@ -57,7 +57,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/ijmri">Read More..</Link>
+                <Link to="/journal/ijmri">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
@@ -83,7 +83,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/isjpchnr">Read More..</Link>
+                <Link to="/journal/isjpchnr">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>
@@ -108,7 +108,7 @@ const JournalsCol = () => {
                 type="submit"
                 className="w-[90%] sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
               >
-                <Link to="/isjner">Read More..</Link>
+                <Link to="/journal/isjner">Read More..</Link>
                 <span className="mt-[5px]">
                   <MdKeyboardArrowRight />
                 </span>

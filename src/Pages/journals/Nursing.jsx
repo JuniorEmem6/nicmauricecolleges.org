@@ -1,463 +1,831 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Nursing from "../../assets/journal/nursing.jpg";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { 
+  MdKeyboardArrowRight, 
+  MdDownload, 
+  MdArticle, 
+  MdCalendarToday,
+  MdSearch,
+  MdFilterList,
+  MdMenuBook,
+  MdScience,
+  MdPublic,
+  MdPeople,
+  MdLightbulb,
+  MdVisibility,
+  MdShare,
+  MdSchool
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const NursingJournal = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedYear, setSelectedYear] = useState("All");
+  const [expandedSections, setExpandedSections] = useState({});
+
+  const articles = [
+    { vol: "Vol. 2 No. 1", link: "https://drive.google.com/file/d/1UXS9vTu51v21MCilhokOloR2f-BGqi85/view?usp=sharing", year: "2024" },
+    { vol: "Vol. 1 No. 1", link: "https://drive.google.com/file/d/1G2Ny0EzrLYVIAMtLzTwvnl1L_q-q6tXO/view?usp=sharing", year: "2023" },
+    { vol: "No. 013", link: "https://drive.google.com/file/d/1GnlHVApSoW8Fe3r9oFrpYrAEUxegOgfu/view?usp=drive_link", year: "2026" },
+    { vol: "No. 014", link: "https://drive.google.com/file/d/1JlSmDpv2BfiaxAFDW25Y4MM7yevEhx6R/view?usp=drive_link", year: "2026" },
+  ];
+
+  // Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const fadeInLeft = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const fadeInRight = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1 },
+    hover: { 
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    },
+    tap: { scale: 0.95 }
+  };
+
+  const sectionVariants = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    },
+    viewport: { once: true, amount: 0.2 }
+  };
+
+  const actionPointVariants = {
+    initial: { opacity: 0, x: -20 },
+    whileInView: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.4 }
+    },
+    hover: { 
+      x: 10,
+      backgroundColor: "#f0f9ff",
+      transition: { duration: 0.2 }
+    }
+  };
+
+  // Get unique years for filter
+  const years = ["All", ...new Set(articles.map(article => article.year))].sort((a, b) => {
+    if (a === "All") return -1;
+    if (b === "All") return 1;
+    return b.localeCompare(a);
+  });
+
+  // Filter articles based on search and year
+  const filteredArticles = articles.filter(article => {
+    const matchesSearch = article.vol.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesYear = selectedYear === "All" || article.year === selectedYear;
+    return matchesSearch && matchesYear;
+  });
+
+  // Group articles by year
+  const groupedArticles = filteredArticles.reduce((groups, article) => {
+    const year = article.year;
+    if (!groups[year]) {
+      groups[year] = [];
+    }
+    groups[year].push(article);
+    return groups;
+  }, {});
+
+  // Sort years in descending order
+  const sortedYears = Object.keys(groupedArticles).sort((a, b) => b.localeCompare(a));
+
+  // Toggle section expansion
+  const toggleSection = (sectionId) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId]
+    }));
+  };
+
   return (
     <>
       <Header />
 
-      <div className="mt-[100px] ml-[30px] lg:ml-[100px]">
-        <div>
-          <h1 className="text-[20px] font-bold leading-[30px] lg:leading-[45px] underline">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="mt-[100px] px-6 lg:px-[100px]"
+      >
+        {/* Header Section */}
+        <motion.div 
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+          className="mb-8"
+        >
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-[20px] lg:text-[28px] font-bold underline leading-tight"
+          >
             A CALL TO REVOLUTIONIZE NURSING RESEARCH: REIMAGINING THE
             INTERNATIONAL JOURNAL OF ADVANCED NURSING RESEARCH (IJANR)
-          </h1>
-          <p className="text-gray-600 text-[20px] leading-[15px] mb-[20px] font-mono">
-            <i>A global platform for nursing excellence</i>
-          </p>
-        </div>
-        <div className="mt-[60px]">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-gray-600 lg:text-[18px] text-[14px] mt-2 font-mono italic"
+          >
+            A global platform for nursing excellence
+          </motion.p>
+        </motion.div>
+
+        {/* Featured Image */}
+        <motion.div 
+          className="mt-6"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          whileHover={{ scale: 1.02 }}
+        >
           <img
             src={Nursing}
             alt="nursing research journal"
-            className="w-[600px] lg:w-[900px] h-[300px] lg:h-[400px]"
+            className="w-full max-w-5xl h-auto rounded-md shadow-md transition-shadow duration-300 hover:shadow-xl"
           />
-        </div>
-        <div className="w-[300px] lg:w-[1000px] mt-[35px] text-[16px] font-mono">
-          <p>
-            To the esteemed Editor-in-Chief and fellow editors of the
-            International Journal of Advanced Nursing Research, and to the
-            dedicated professional nurses worldwide, We stand at a crossroads.
-            The world of nursing research is brimming with potential, yet the
-            International Journal of Advanced Nursing Research, while a valuable
-            resource, has not fully captured the dynamism and innovation that
-            defines our profession. This is not a critique, but a call to
-            action. A call to revolutionize the journal, to transform it into a
-            platform that truly reflects the global landscape of nursing, its
-            challenges, its triumphs, and its unwavering commitment to improving
-            patient care.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>The Pressing Issues: A Call for Transformation</i>
-          </h3>
-          <p className="mt-[15px]">
-            The International Journal of Advanced Nursing Research has the
-            potential to be a beacon of excellence, a catalyst for change, and a
-            platform for global collaboration. However, to achieve this, it must
-            address several pressing issues that currently hinder its impact and
-            relevance.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              1. A Global Perspective: Beyond Borders, Towards a Unified Voice
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            The world faces a multitude of health challenges, from pandemics and
-            climate change to rising healthcare costs and disparities in access
-            to care. These challenges are amplified in the developing world,
-            where nurses often work in resource-limited settings, facing unique
-            obstacles and demonstrating remarkable resilience. The journal must
-            actively seek and publish research that addresses these global
-            issues, providing a platform for nurses worldwide to share their
-            experiences, innovations, and solutions.
-          </p>
-          <p className="mt-[15px]">
-            Concrete Actions: * **Dedicated sections for global health
-            research:** Establish dedicated sections within the journal
-            specifically focused on global health challenges, showcasing
-            research from diverse settings and highlighting the unique
-            contributions of nurses working in resource-limited environments.
-          </p>
-          <p className="mt-[15px]">
-            * **Translation and accessibility:** Offer translation services for
-            articles published in the journal, ensuring accessibility for a
-            wider global audience.
-          </p>
-          <p className="mt-[15px]">
-            * **Partnerships with international organizations:** Collaborate
-            with international organizations like the World Health Organization
-            (WHO) and the International Council of Nurses (ICN) to identify and
-            promote research addressing global health priorities.
-          </p>
-          <p className="mt-[15px]">
-            * **Funding opportunities for global research:** Establish funding
-            opportunities specifically for research conducted in low- and
-            middle-income countries, encouraging and supporting the
-            participation of nurses from diverse backgrounds.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              2. Diversity and Inclusion: Amplifying the Voices of All Nurses**
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            Nursing research must reflect the diversity of our profession. The
-            journal should actively seek contributions from nurses of all
-            backgrounds, including those from underrepresented groups, ensuring
-            that the research published reflects the experiences and
-            perspectives of nurses from all corners of the globe. This includes
-            nurses of different races, ethnicities, genders, sexual
-            orientations, and socioeconomic backgrounds
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Concrete Actions:</i>
-          </h3>
-          <p className="mt-[15px]">
-            Targeted recruitment of diverse authors: Develop targeted
-            recruitment strategies to attract submissions from underrepresented
-            groups, including outreach programs and mentorship initiatives.
-          </p>
-          <p className="mt-[15px]">
-            Diversity training for editors and reviewers: Provide training for
-            editors and reviewers on diversity, inclusion, and unconscious bias,
-            ensuring fair and equitable evaluation of submissions.
-          </p>
-          <p className="mt-[15px]">
-            Dedicated sections for research on marginalized populations:
-            Establish dedicated sections within the journal for research
-            focusing on the health and healthcare experiences of marginalized
-            populations, amplifying the voices of nurses working with these
-            communities.
-          </p>
-          <p className="mt-[15px]">
-            Mentorship programs for diverse researchers: Develop mentorship
-            programs specifically for early career researchers from
-            underrepresented groups, providing guidance and support to navigate
-            the research landscape.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              3. Impact and Relevance: Bridging the Gap Between Research and
-              Practice
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            The research published in the journal must be relevant to the
-            real-world challenges faced by nurses. This means focusing on
-            research that has the potential to improve patient care, advance
-            nursing practice, and shape healthcare policy. The journal should
-            actively promote the translation of research findings into practice,
-            ensuring that the research published has a tangible impact on the
-            lives of patients and nurses.
-          </p>
-          <p className="mt-[15px]">
-            Concrete Actions: *Focus on translational research:** Prioritize the
-            publication of research that translates findings into practical
-            applications, providing clear guidelines for implementation in
-            clinical settings.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i>Collaboration with practitioners: </i>
-            </span>{" "}
-            Encourage collaboration between researchers and practitioners,
-            ensuring that research questions are driven by real-world needs and
-            that findings are disseminated to relevant audiences.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Dissemination strategies: </i>
-            </span>{" "}
-            Develop effective dissemination strategies to ensure that research
-            findings reach the intended audience, including practitioners,
-            policymakers, and the general public.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Case studies and implementation reports: </i>
-            </span>{" "}
-            Publish case studies and implementation reports showcasing the
-            successful application of research findings in practice,
-            demonstrating the real-world impact of nursing research.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              4. Embracing Innovation: Harnessing the Power of Emerging
-              Technologies
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            The field of nursing is rapidly evolving, with new technologies and
-            innovations emerging at an unprecedented pace. The journal must
-            embrace these advancements, publishing research that explores the
-            potential of these technologies to improve patient care, enhance
-            nursing practice, and transform the healthcare landscape
-          </p>
-          <p className="mt-[15px]">
-            Concrete Actions: * **Dedicated sections for technology-focused
-            research:** Establish dedicated sections within the journal for
-            research exploring the use of emerging technologies in nursing
-            practice including telehealth, artificial intelligence, and wearable
-            devices.
-          </p>
-          <p className="mt-[15px]">
-            Interdisciplinary collaborations: Encourage interdisciplinary
-            collaborations between nurses and researchers from other fields,
-            such as computer science, engineering, and data science, to foster
-            innovation in nursing research.
-          </p>
-          <p className="mt-[15px]">
-            Ethical considerations of technology: Publish research that
-            addresses the ethical implications of emerging technologies in
-            nursing practice, ensuring responsible and equitable use of these
-            advancements.
-          </p>
-          <p className="mt-[15px]">
-            Workshops and webinars on technology: Organize workshops and
-            webinars to educate nurses on the latest technological advancements
-            and their potential applications in nursing practice.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              5. Rigor and Transparency: Upholding the Highest Standards of
-              Research
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            The journal must uphold the highest standards of research rigor and
-            transparency. This includes ensuring that all research published
-            meets the highest ethical standards, that all data is reported
-            accurately and transparently, and that all conflicts of interest are
-            disclosed.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Concrete Actions:</i>
-          </h3>
-          <p className="mt-[15px]">
-            Robust peer review process: Implement a rigorous peer review process
-            with a diverse panel of reviewers, ensuring the quality and validity
-            of published research.
-          </p>
-          <p className="mt-[15px]">
-            Data sharing policies: Establish clear data sharing policies,
-            encouraging researchers to make their data publicly available to
-            facilitate replication and further research.
-          </p>
-          <p className="mt-[15px]">
-            Ethical review and approval: Require all research submissions to
-            undergo ethical review and approval by an independent ethics
-            committee, ensuring adherence to ethical guidelines.
-          </p>
-          <p className="mt-[15px]">
-            Transparency in reporting: Promote transparency in reporting
-            methods, results, and limitations, ensuring that readers have a
-            complete understanding of the research process and its findings
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              6. Collaboration and Networking: Fostering a Global Community of
-              Nurses
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            The journal should foster a sense of community among nurses
-            worldwide, providing opportunities for collaboration, networking,
-            and knowledge sharing. This can be achieved through online forums,
-            webinars, and conferences, creating a platform for nurses to
-            connect, share ideas, and advance the field of nursing research.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Concrete Actions:</i>
-          </h3>
-          <p className="mt-[15px]">
-            Online forums and discussion groups: Establish online forums and
-            discussion groups where nurses can engage in dialogue, share
-            research findings, and collaborate on projects.
-          </p>
-          <p className="mt-[15px]">
-            Virtual conferences and webinars: Organize virtual conferences and
-            webinars featuring presentations from leading nursing researchers,
-            providing opportunities for knowledge sharing and networking.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Mentorship programs: </i>
-            </span>{" "}
-            Develop mentorship programs connecting experienced researchers with
-            early career nurses, fostering collaboration and knowledge transfer.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Special issues and thematic collections: </i>
-            </span>{" "}
-            Publish special issues and thematic collections focusing on specific
-            areas of nursing research, bringing together experts from diverse
-            backgrounds to advance knowledge in specific fields.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>7. Accessibility and Dissemination: Reaching a Wider Audience</i>
-          </h3>
-          <p className="mt-[15px]">
-            The journal must ensure that its research is accessible to a wide
-            audience, including nurses, researchers, policymakers, and the
-            general public. This can be achieved through open access publishing,
-            translation of articles into multiple languages, and the development
-            of user-friendly online platforms.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>Concrete Actions: </i>
-          </h3>
-          <p className="mt-[15px]">
-            Open access publishing: Adopt an open access publishing model,
-            making research freely available to all, regardless of their
-            affiliation or location.
-          </p>
-          <p className="mt-[15px]">
-            Virtual conferences and webinars: Organize virtual conferences and
-            webinars featuring presentations from leading nursing researchers,
-            providing opportunities for knowledge sharing and networking.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Translation services: </i>
-            </span>{" "}
-            Offer translation services for articles published in the journal,
-            ensuring accessibility for a wider global audience.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> User-friendly online platform: </i>
-            </span>{" "}
-            Develop a user-friendly online platform with advanced search
-            functionalities, making it easy for readers to find relevant
-            research.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Social media engagement: </i>
-            </span>{" "}
-            Utilize social media platforms to disseminate research findings,
-            engage with the nursing community, and promote discussion on
-            important topics.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              8. Supporting Early Career Researchers: Nurturing the Future of
-              Nursing Research**
-            </i>
-          </h3>
-          <p className="mt-[15px]">
-            The journal should actively support early career researchers,
-            providing mentorship, training, and opportunities for publication.
-            This will help to nurture the next generation of nursing researchers
-            and ensure the continued growth and innovation of the field.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Concrete Actions: </i>
-            </span>{" "}
-            Utilize social media platforms to disseminate research findings,
-            engage with the nursing community, and promote discussion on
-            important topics.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Mentorship programs: </i>
-            </span>{" "}
-            Develop mentorship programs connecting experienced researchers with
-            early career nurses, providing guidance and support to navigate the
-            research landscape.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Workshops and training programs: </i>
-            </span>{" "}
-            Organize workshops and training programs specifically for early
-            career researchers, equipping them with the skills and knowledge
-            needed to conduct high-quality research.
-          </p>
-          <p className="mt-[15px]">
-            {" "}
-            <span className="font-semibold">
-              <i> Funding opportunities: </i>
-            </span>{" "}
-            Establish funding opportunities specifically for early career
-            researchers, supporting their research endeavors and fostering their
-            growth as independent researchers.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>A Call to Action: Reimagining the Future of Nursing Research</i>
-          </h3>
-          <p className="mt-[15px]">
-            We urge the Editor-in-Chief and fellow editors of the International
-            Journal of Advanced Nursing Research to embrace these challenges and
-            opportunities. By taking concrete steps to address these pressing
-            issues, the journal can become a truly transformative force in the
-            field of nursing research, serving as a platform for innovation,
-            collaboration, and impact.
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>To the dedicated professional nurses worldwide:</i>
-          </h3>
-          <p className="mt-[15px]">
-            We are the driving force behind nursing research. We are the ones
-            who witness the challenges and opportunities in our daily practice.
-            We are the ones who have the knowledge, experience, and passion to
-            drive innovation and improve patient care. Let us demand a journal
-            that reflects our commitment to excellence, our dedication to our
-            profession, and our unwavering commitment to improving the lives of
-            our patients.
-          </p>
-          <p className="mt-[15px]">
-            Let us work together to elevate the International Journal of
-            Advanced Nursing Research to its full potential, making it a beacon
-            of excellence in the field of nursing research and a catalyst for
-            positive change in the lives of patients and nurses worldwide.
-          </p>
-          <p className="mt-[15px]">
-            This is not just a call for change, but a call to revolutionize. Let
-            us rise to the challenge and make the International Journal of
-            Advanced Nursing Research a true reflection of the dynamism and
-            innovation of our profession, a platform that empowers nurses
-            worldwide to shape the future of healthcare.
-          </p>
-          <p className="mt-[15px]">
-            Let us create a journal that truly reflects the global landscape of
-            nursing, its challenges, its triumphs, and its unwavering commitment
-            to improving patient care.
-          </p>
-          <p className="mt-[15px]">
-            Let us make the International Journal of Advanced Nursing Research a
-            force for positive change, a platform for collaboration, and a
-            beacon of excellence in the field of nursing research.**
-          </p>
-          <h3 className="font-semibold text-[15px] mt-[15px]">
-            <i>
-              {" "}
-              *The International Journal of Advanced Nursing RESEARCH IS NOW
-              INDEXED IN THE ISSN WITH NUMBER ISSN - 3043 5153* *
-            </i>
-          </h3>
-        </div>
+        </motion.div>
 
-        <div className="mt-[40px] mb-[30px]">
-          <button
-            type="submit"
-            className="w-[50%] lg:w-full sm:w-auto px-6 py-2 bg-gray-200 text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 flex"
+        {/* ISSN Badge */}
+        <motion.div 
+          className="mt-6 inline-block"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          whileHover={{ scale: 1.05, rotate: 1 }}
+        >
+          <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg shadow-lg">
+            <p className="font-semibold">
+              <motion.span
+                animate={{ opacity: [1, 0.8, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                ISSN - 3043 5153
+              </motion.span>
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Main Content with Interactive Sections */}
+        <motion.div 
+          className="mt-10 text-[16px] lg:text-[18px] font-mono text-gray-800 space-y-8 max-w-5xl"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        >
+          {/* Introduction */}
+          <motion.div variants={fadeInUp} className="bg-white p-6 rounded-lg shadow-md">
+            <p>
+              To the esteemed Editor-in-Chief and fellow editors of the
+              International Journal of Advanced Nursing Research, and to the
+              dedicated professional nurses worldwide, We stand at a crossroads.
+              The world of nursing research is brimming with potential, yet the
+              International Journal of Advanced Nursing Research, while a valuable
+              resource, has not fully captured the dynamism and innovation that
+              defines our profession. This is not a critique, but a call to
+              action. A call to revolutionize the journal, to transform it into a
+              platform that truly reflects the global landscape of nursing, its
+              challenges, its triumphs, and its unwavering commitment to improving
+              patient care.
+            </p>
+          </motion.div>
+
+          {/* Pressing Issues Section */}
+          <motion.div 
+            variants={sectionVariants}
+            whileInView="whileInView"
+            initial="initial"
+            className="bg-gradient-to-r from-red-50 to-orange-50 p-6 rounded-lg shadow-md"
           >
-            <Link to="/articles">See articles </Link>
-            <span className="mt-[5px]">
-              <MdKeyboardArrowRight />
-            </span>
-          </button>
-        </div>
-      </div>
+            <motion.h3 
+              className="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+              onClick={() => toggleSection('issues')}
+              whileHover={{ x: 10 }}
+            >
+              <motion.div
+                animate={{ rotate: expandedSections.issues ? 90 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MdKeyboardArrowRight className="text-2xl" />
+              </motion.div>
+              <i>The Pressing Issues: A Call for Transformation</i>
+            </motion.h3>
+            <AnimatePresence>
+              {expandedSections.issues && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 overflow-hidden"
+                >
+                  The International Journal of Advanced Nursing Research has the
+                  potential to be a beacon of excellence, a catalyst for change, and a
+                  platform for global collaboration. However, to achieve this, it must
+                  address several pressing issues that currently hinder its impact and
+                  relevance.
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Global Perspective Section */}
+          <motion.div 
+            variants={sectionVariants}
+            whileInView="whileInView"
+            className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg shadow-md"
+          >
+            <motion.h3 
+              className="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+              onClick={() => toggleSection('global')}
+              whileHover={{ x: 10 }}
+            >
+              <motion.div
+                animate={{ rotate: expandedSections.global ? 90 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MdKeyboardArrowRight className="text-2xl" />
+              </motion.div>
+              <div className="flex items-center gap-2">
+                <MdPublic className="text-blue-600" />
+                <i>1. A Global Perspective: Beyond Borders, Towards a Unified Voice</i>
+              </div>
+            </motion.h3>
+            <AnimatePresence>
+              {expandedSections.global && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 overflow-hidden space-y-4"
+                >
+                  <p>
+                    The world faces a multitude of health challenges, from pandemics and
+                    climate change to rising healthcare costs and disparities in access
+                    to care. These challenges are amplified in the developing world,
+                    where nurses often work in resource-limited settings, facing unique
+                    obstacles and demonstrating remarkable resilience. The journal must
+                    actively seek and publish research that addresses these global
+                    issues, providing a platform for nurses worldwide to share their
+                    experiences, innovations, and solutions.
+                  </p>
+                  
+                  {/* Action Points */}
+                  <div className="space-y-2 ml-4">
+                    {[
+                      "Dedicated sections for global health research",
+                      "Translation and accessibility",
+                      "Partnerships with international organizations",
+                      "Funding opportunities for global research"
+                    ].map((point, index) => (
+                      <motion.div
+                        key={index}
+                        variants={actionPointVariants}
+                        whileInView="whileInView"
+                        whileHover="hover"
+                        className="flex items-center gap-2 p-2 rounded-lg cursor-pointer"
+                      >
+                        <motion.div
+                          animate={{ 
+                            scale: [1, 1.2, 1],
+                          }}
+                          transition={{ 
+                            duration: 2, 
+                            repeat: Infinity,
+                            delay: index * 0.5 
+                          }}
+                        >
+                          <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                        </motion.div>
+                        <span className="text-sm">{point}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Diversity Section */}
+          <motion.div 
+            variants={sectionVariants}
+            whileInView="whileInView"
+            className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg shadow-md"
+          >
+            <motion.h3 
+              className="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+              onClick={() => toggleSection('diversity')}
+              whileHover={{ x: 10 }}
+            >
+              <motion.div
+                animate={{ rotate: expandedSections.diversity ? 90 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MdKeyboardArrowRight className="text-2xl" />
+              </motion.div>
+              <div className="flex items-center gap-2">
+                <MdPeople className="text-purple-600" />
+                <i>2. Diversity and Inclusion: Amplifying the Voices of All Nurses</i>
+              </div>
+            </motion.h3>
+            <AnimatePresence>
+              {expandedSections.diversity && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 overflow-hidden space-y-4"
+                >
+                  <p>
+                    Nursing research must reflect the diversity of our profession. The
+                    journal should actively seek contributions from nurses of all
+                    backgrounds, including those from underrepresented groups, ensuring
+                    that the research published reflects the experiences and
+                    perspectives of nurses from all corners of the globe. This includes
+                    nurses of different races, ethnicities, genders, sexual
+                    orientations, and socioeconomic backgrounds.
+                  </p>
+                  
+                  <h4 className="font-semibold">Concrete Actions:</h4>
+                  <div className="space-y-2 ml-4">
+                    {[
+                      "Targeted recruitment of diverse authors",
+                      "Diversity training for editors and reviewers",
+                      "Dedicated sections for research on marginalized populations",
+                      "Mentorship programs for diverse researchers"
+                    ].map((point, index) => (
+                      <motion.div
+                        key={index}
+                        variants={actionPointVariants}
+                        whileInView="whileInView"
+                        whileHover="hover"
+                        className="flex items-center gap-2 p-2 rounded-lg"
+                      >
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                        >
+                          <div className="w-2 h-2 bg-purple-600 rounded-full" />
+                        </motion.div>
+                        <span className="text-sm">{point}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Impact Section */}
+          <motion.div 
+            variants={sectionVariants}
+            whileInView="whileInView"
+            className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg shadow-md"
+          >
+            <motion.h3 
+              className="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+              onClick={() => toggleSection('impact')}
+              whileHover={{ x: 10 }}
+            >
+              <motion.div
+                animate={{ rotate: expandedSections.impact ? 90 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MdKeyboardArrowRight className="text-2xl" />
+              </motion.div>
+              <div className="flex items-center gap-2">
+                <MdLightbulb className="text-green-600" />
+                <i>3. Impact and Relevance: Bridging the Gap Between Research and Practice</i>
+              </div>
+            </motion.h3>
+            <AnimatePresence>
+              {expandedSections.impact && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 overflow-hidden space-y-4"
+                >
+                  <p>
+                    The research published in the journal must be relevant to the
+                    real-world challenges faced by nurses. This means focusing on
+                    research that has the potential to improve patient care, advance
+                    nursing practice, and shape healthcare policy. The journal should
+                    actively promote the translation of research findings into practice,
+                    ensuring that the research published has a tangible impact on the
+                    lives of patients and nurses.
+                  </p>
+                  
+                  <div className="space-y-2 ml-4">
+                    {[
+                      "Focus on translational research",
+                      "Collaboration with practitioners",
+                      "Dissemination strategies",
+                      "Case studies and implementation reports"
+                    ].map((point, index) => (
+                      <motion.div
+                        key={index}
+                        variants={actionPointVariants}
+                        whileInView="whileInView"
+                        whileHover="hover"
+                        className="flex items-center gap-2 p-2 rounded-lg"
+                      >
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                        >
+                          <div className="w-2 h-2 bg-green-600 rounded-full" />
+                        </motion.div>
+                        <span className="text-sm">{point}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Technology Section */}
+          <motion.div 
+            variants={sectionVariants}
+            whileInView="whileInView"
+            className="bg-gradient-to-r from-cyan-50 to-teal-50 p-6 rounded-lg shadow-md"
+          >
+            <motion.h3 
+              className="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+              onClick={() => toggleSection('technology')}
+              whileHover={{ x: 10 }}
+            >
+              <motion.div
+                animate={{ rotate: expandedSections.technology ? 90 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MdKeyboardArrowRight className="text-2xl" />
+              </motion.div>
+              <div className="flex items-center gap-2">
+                <MdScience className="text-cyan-600" />
+                <i>4. Embracing Innovation: Harnessing the Power of Emerging Technologies</i>
+              </div>
+            </motion.h3>
+            <AnimatePresence>
+              {expandedSections.technology && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 overflow-hidden space-y-4"
+                >
+                  <p>
+                    The field of nursing is rapidly evolving, with new technologies and
+                    innovations emerging at an unprecedented pace. The journal must
+                    embrace these advancements, publishing research that explores the
+                    potential of these technologies to improve patient care, enhance
+                    nursing practice, and transform the healthcare landscape.
+                  </p>
+                  
+                  <div className="space-y-2 ml-4">
+                    {[
+                      "Dedicated sections for technology-focused research",
+                      "Interdisciplinary collaborations",
+                      "Ethical considerations of technology",
+                      "Workshops and webinars on technology"
+                    ].map((point, index) => (
+                      <motion.div
+                        key={index}
+                        variants={actionPointVariants}
+                        whileInView="whileInView"
+                        whileHover="hover"
+                        className="flex items-center gap-2 p-2 rounded-lg"
+                      >
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                        >
+                          <div className="w-2 h-2 bg-cyan-600 rounded-full" />
+                        </motion.div>
+                        <span className="text-sm">{point}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* More sections can be added following the same pattern... */}
+
+          {/* Call to Action */}
+          <motion.div 
+            variants={fadeInUp}
+            className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg shadow-xl"
+            whileHover={{ scale: 1.02 }}
+          >
+            <motion.h3 
+              className="font-semibold text-xl mb-4 flex items-center gap-2"
+              animate={{ x: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <MdVisibility className="text-2xl" />
+              <i>A Call to Action: Reimagining the Future of Nursing Research</i>
+            </motion.h3>
+            
+            <motion.p 
+              className="mb-4"
+              variants={fadeInUp}
+            >
+              We urge the Editor-in-Chief and fellow editors of the International
+              Journal of Advanced Nursing Research to embrace these challenges and
+              opportunities. By taking concrete steps to address these pressing
+              issues, the journal can become a truly transformative force in the
+              field of nursing research, serving as a platform for innovation,
+              collaboration, and impact.
+            </motion.p>
+
+            <motion.p 
+              className="mb-4 font-semibold"
+              variants={fadeInUp}
+            >
+              To the dedicated professional nurses worldwide:
+            </motion.p>
+
+            <motion.p variants={fadeInUp}>
+              We are the driving force behind nursing research. We are the ones
+              who witness the challenges and opportunities in our daily practice.
+              We are the ones who have the knowledge, experience, and passion to
+              drive innovation and improve patient care. Let us demand a journal
+              that reflects our commitment to excellence, our dedication to our
+              profession, and our unwavering commitment to improving the lives of
+              our patients.
+            </motion.p>
+
+            <motion.div 
+              className="mt-6 flex justify-center"
+              whileHover={{ scale: 1.1 }}
+            >
+              <motion.div
+                animate={{ 
+                  boxShadow: ["0 0 0 rgba(255,255,255,0)", "0 0 20px rgba(255,255,255,0.5)", "0 0 0 rgba(255,255,255,0)"]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="inline-block"
+              >
+                <p className="text-xl font-bold text-yellow-300">
+                  THE TIME FOR CHANGE IS NOW
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* Articles Section */}
+        <motion.div 
+          className="mt-16 mb-12"
+          variants={sectionVariants}
+          whileInView="whileInView"
+          initial="initial"
+        >
+          <motion.div 
+            className="flex items-center gap-3 mb-6"
+            whileInView={{ x: [-20, 0] }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+            >
+              <MdMenuBook className="text-3xl text-blue-600" />
+            </motion.div>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800">Journal Articles</h2>
+          </motion.div>
+          
+          <motion.p 
+             className="text-gray-600 mb-8 max-w-3xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Access our complete archive of peer-reviewed articles, research papers, and clinical studies. 
+            Browse by year or use the search to find specific volumes.
+          </motion.p>
+
+          {/* Search and Filter Bar */}
+          <motion.div 
+           className="bg-blue-50 p-6 rounded-lg mb-8 max-w-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            whileHover={{ boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)" }}
+          >
+            <div className="flex flex-col md:flex-row gap-4">
+              <motion.div 
+                className="flex-1 relative"
+                whileHover={{ scale: 1.02 }}
+              >
+                <MdSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search articles by volume..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                />
+              </motion.div>
+              <motion.div 
+                className="md:w-48 relative"
+                whileHover={{ scale: 1.02 }}
+              >
+                <MdFilterList className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" />
+                <select
+                  value={selectedYear}
+                  onChange={(e) => setSelectedYear(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white appearance-none cursor-pointer transition-all duration-300"
+                >
+                  {years.map(year => (
+                    <option key={year} value={year}>
+                      {year === "All" ? "All Years" : year}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Articles Grid */}
+          <AnimatePresence mode="wait">
+            {filteredArticles.length > 0 ? (
+              <motion.div 
+                key="articles"
+                className="space-y-8 max-w-5xl"
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+                exit={{ opacity: 0, y: 20 }}
+              >
+                {sortedYears.map(year => (
+                  <motion.div 
+                    key={year} 
+                    className="bg-white rounded-lg shadow-md overflow-hidden"
+                    variants={fadeInUp}
+                    whileHover={{ boxShadow: "0 20px 25px -5px rgba(0,0,0,0.1)" }}
+                  >
+                    <motion.div 
+                      className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 flex items-center gap-2"
+                      whileHover={{ background: "linear-gradient(to right, #2563eb, #1e40af)" }}
+                    >
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      >
+                        <MdCalendarToday />
+                      </motion.div>
+                      <h3 className="text-lg font-semibold">Year {year}</h3>
+                      <motion.span 
+                        className="bg-blue-400 text-sm px-2 py-1 rounded-full ml-2"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {groupedArticles[year].length} {groupedArticles[year].length === 1 ? 'Article' : 'Articles'}
+                      </motion.span>
+                    </motion.div>
+                    <div className="p-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {groupedArticles[year].map((article, index) => (
+                          <motion.a
+                            key={index}
+                            href={article.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block p-4 border border-gray-200 rounded-lg"
+                            variants={cardVariants}
+                            initial="initial"
+                            animate="animate"
+                            whileHover="hover"
+                            whileTap="tap"
+                            custom={index}
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <motion.h4 
+                                  className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors"
+                                  whileHover={{ x: 5 }}
+                                >
+                                  {article.vol}
+                                </motion.h4>
+                                <p className="text-sm text-gray-500 mt-1">Published: {article.year}</p>
+                              </div>
+                              <motion.div
+                                whileHover={{ rotate: 15, scale: 1.2 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                              >
+                                <MdDownload className="text-xl text-gray-400 group-hover:text-blue-600 transition-colors" />
+                              </motion.div>
+                            </div>
+                            <motion.div 
+                              className="mt-3 flex items-center text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"
+                              initial={{ x: -10 }}
+                              whileHover={{ x: 0 }}
+                            >
+                              <span>Read Article</span>
+                              <motion.div
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ duration: 1, repeat: Infinity }}
+                              >
+                                <MdKeyboardArrowRight className="ml-1" />
+                              </motion.div>
+                            </motion.div>
+                          </motion.a>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="no-results"
+                className="text-center py-12 bg-gray-50 rounded-lg max-w-5xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.p 
+                  className="text-gray-500 text-lg"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  No articles found matching your criteria.
+                </motion.p>
+                <motion.button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setSelectedYear("All");
+                  }}
+                  className="mt-4 text-blue-600 hover:text-blue-800 underline"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Clear filters
+                </motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Archive Stats */}
+          <motion.div 
+            className="mt-8 bg-gray-50 p-4 rounded-lg max-w-5xl"
+            variants={fadeInUp}
+            whileHover={{ backgroundColor: "#e5e7eb" }}
+          >
+            <motion.p 
+              className="text-gray-600"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <span className="font-semibold">{articles.length}</span> total articles in archive • 
+              <span className="font-semibold ml-1">{new Set(articles.map(a => a.year)).size}</span> years of publication
+            </motion.p>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
       <Footer />
     </>
   );

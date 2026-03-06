@@ -1,92 +1,391 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Professional from "../../assets/journal/professional.jpg";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { 
+  MdKeyboardArrowRight, 
+  MdDownload, 
+  MdCalendarToday,
+  MdSearch,
+  MdFilterList,
+  MdMenuBook 
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 
-
 const ProfessionalJournal = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedYear, setSelectedYear] = useState("All");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const articles = [
+    { vol: "Vol. 22 No. 2", link: "https://drive.google.com/file/d/1piWhbb-rL7lHnyzGvQc2huU1v5Xa7TMM/view?usp=sharing", year: "2024" },
+    { vol: "Vol. 22 No. 1", link: "https://drive.google.com/file/d/1VRdQ86nlf7TdrUZMJ4QDVrLqt11XurCV/view?usp=sharing", year: "2024" },
+    { vol: "Vol 21. No. 3", link: "https://drive.google.com/file/d/1JginAx_4QtBktAp6FEQo02PMdkzIbi5l/view?usp=sharing", year: "2023" },
+    { vol: "Vol 21. No. 2", link: "https://drive.google.com/file/d/1aAkQ4r2TpzZw4Crtv9HuzwAMuHwp2L9S/view?usp=drive_link", year: "2023" },
+    { vol: "Vol 21. No. 1", link: "https://drive.google.com/file/d/10JqO5Gei5rT24Wuyknd330bWimBqDk25/view?usp=sharing", year: "2023" },
+    { vol: "Vol 18. No. 1", link: "https://drive.google.com/file/d/1DvKkwXAKxV6i2Szh7lXwD_dyObjXx895/view?usp=sharing", year: "2020" },
+    { vol: "Ipnj 2015", link: "https://drive.google.com/file/d/1q0DcxQYRjbLo-DcGNge8lTDTuwVr5JZz/view?usp=sharing", year: "2015" },
+    { vol: "Ipnj 2014", link: "https://drive.google.com/file/d/1XweEOJYeoM3Qi04bHFhjG6bA_tVfd7no/view?usp=sharing", year: "2014" },
+    { vol: "Ipnj 2013", link: "https://drive.google.com/file/d/1RY3UD2FOpWa5NO6FUqdeAn59N3CbNhhw/view?usp=sharing", year: "2013" },
+    { vol: "Ipnj 2012", link: "https://drive.google.com/file/d/1actsbvJyfAXDvrUujR7WktdT6r-m4M0s/view?usp=sharing", year: "2012" },
+    { vol: "Ipnj 2011", link: "https://drive.google.com/file/d/1im2wILt9gu2GyDf5mjYIFElDaSOtllyM/view?usp=sharing", year: "2011" },
+    { vol: "Ipnj 2026, No. 1000", link: "https://drive.google.com/file/d/11oQBSYH43ShjvWnlvzIi-UphGb1_9-Hj/view?usp=drive_link", year: "2026" },
+    { vol: "Ipnj 2026, No. 1001", link: "https://drive.google.com/file/d/1fvDNn_74e_dHmaFBYQP4tZYiCodkqATg/view?usp=drive_link", year: "2026" }
+  ];
+
+  // Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1 },
+    hover: { 
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    },
+    tap: { scale: 0.95 }
+  };
+
+  const yearHeaderVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.4 }
+  };
+
+  // Get unique years for filter
+  const years = ["All", ...new Set(articles.map(article => article.year))].sort((a, b) => {
+    if (a === "All") return -1;
+    if (b === "All") return 1;
+    return b.localeCompare(a);
+  });
+
+  // Filter articles based on search and year
+  const filteredArticles = articles.filter(article => {
+    const matchesSearch = article.vol.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesYear = selectedYear === "All" || article.year === selectedYear;
+    return matchesSearch && matchesYear;
+  });
+
+  // Group articles by year
+  const groupedArticles = filteredArticles.reduce((groups, article) => {
+    const year = article.year;
+    if (!groups[year]) {
+      groups[year] = [];
+    }
+    groups[year].push(article);
+    return groups;
+  }, {});
+
+  // Sort years in descending order
+  const sortedYears = Object.keys(groupedArticles).sort((a, b) => b.localeCompare(a));
+
   return (
     <>
       <Header />
 
-      <div className="mt-[100px] px-6 lg:px-[100px]">
-        <div>
-          <h1 className="text-[20px] lg:text-[28px] font-bold underline leading-tight">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="mt-[100px] px-6 lg:px-[100px]"
+      >
+        {/* Header Section with Animation */}
+        <motion.div 
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+          className="mb-8"
+        >
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-[20px] lg:text-[28px] font-bold underline leading-tight"
+          >
             INTERNATIONAL PROFESSIONAL NURSING JOURNAL
-          </h1>
-          <p className="text-gray-600 lg:text-[18px] text-[14px] mt-2 font-mono italic">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-gray-600 lg:text-[18px] text-[14px] mt-2 font-mono italic"
+          >
             A global platform for nursing excellence
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="mt-10">
+        {/* Featured Image with Animation */}
+        <motion.div 
+          className="mt-6"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          whileHover={{ scale: 1.02 }}
+        >
           <img
             src={Professional}
             alt="International Professional Nursing Journal"
-            className="w-full max-w-5xl h-auto rounded-md shadow-md"
+            className="w-full max-w-5xl h-auto rounded-md shadow-md transition-shadow duration-300 hover:shadow-xl"
           />
-        </div>
+        </motion.div>
 
-        <div className="mt-10 text-[16px] lg:text-[18px] font-mono text-gray-800 space-y-6 max-w-5xl">
-          <p>
-            The <strong>International Professional Nursing Journal (IPNJ)</strong> has been a beacon of nursing knowledge and
-            innovation for over two decades. Since 1999, it has delivered high-quality, evidence-based content that informs,
-            inspires, and empowers nurses across specialties and career stages.
-          </p>
-
-          <h3 className="font-semibold italic text-lg">* A Legacy of Global Leadership:</h3>
-          <p>
-            <strong className="italic">* Unwavering Commitment to Quality:</strong> IPNJ upholds high standards of academic
-            rigor, with every article undergoing meticulous peer review by an international editorial board.
-          </p>
-
-          <p>
-            <strong className="italic">* Comprehensive Scope:</strong> IPNJ embraces the multifaceted nature of nursing—
-            covering clinical practice, research, education, leadership, policy, and ethics—ensuring relevance across
-            specialties.
-          </p>
-
-          <p>
-            <strong className="italic">* Global Reach and Impact:</strong> IPNJ connects nurses worldwide, fostering a
-            community of practice and expanding its influence on global healthcare improvement.
-          </p>
-
-          <h3 className="font-semibold italic text-lg">* A Catalyst for Innovation and Advancement:</h3>
-          <p>
-            <strong className="italic">* Embracing New Frontiers:</strong> IPNJ seeks and promotes innovation in nursing
-            research, practice, and education, staying ahead in the profession and shaping the future of healthcare.
-          </p>
-
-          <p>
-            <strong className="italic">* Bridging the Gap Between Theory and Practice:</strong> IPNJ translates research into
-            practical insights that nurses can apply in their daily work to improve patient care and outcomes.
-          </p>
-
-          <p>
-            <strong className="italic">* Fostering Dialogue and Collaboration:</strong> IPNJ is a platform for collaboration
-            among nurses, educators, researchers, and policymakers—driving innovation and addressing healthcare challenges.
-          </p>
-
-          <p>
-            <strong className="italic">* International Professional Nursing Journal:</strong> More than a publication—it's a
-            global community united by a passion for nursing excellence and a vision for a healthier future.
-          </p>
-        </div>
-
-        <div className="mt-10 mb-12">
-          <Link to="/articles">
-            <button
-              type="button"
-              className="flex items-center gap-2 px-6 py-2 bg-blue-100 text-blue-700 font-semibold rounded-lg shadow hover:bg-blue-200 transition duration-300"
+        {/* Journal Description with Stagger Animation */}
+        <motion.div 
+          className="mt-10 text-[16px] lg:text-[18px] font-mono text-gray-800 space-y-6 max-w-5xl"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        >
+          {[
+            "The International Professional Nursing Journal (IPNJ) has been a beacon of nursing knowledge and innovation for over two decades. Since 1999, it has delivered high-quality, evidence-based content that informs, inspires, and empowers nurses across specialties and career stages.",
+            "A Legacy of Global Leadership:",
+            "Unwavering Commitment to Quality: IPNJ upholds high standards of academic rigor, with every article undergoing meticulous peer review by an international editorial board.",
+            "Comprehensive Scope: IPNJ embraces the multifaceted nature of nursing— covering clinical practice, research, education, leadership, policy, and ethics—ensuring relevance across specialties.",
+            "Global Reach and Impact: IPNJ connects nurses worldwide, fostering a community of practice and expanding its influence on global healthcare improvement.",
+            "A Catalyst for Innovation and Advancement:",
+            "Embracing New Frontiers: IPNJ seeks and promotes innovation in nursing research, practice, and education, staying ahead in the profession and shaping the future of healthcare.",
+            "Bridging the Gap Between Theory and Practice: IPNJ translates research into practical insights that nurses can apply in their daily work to improve patient care and outcomes.",
+            "Fostering Dialogue and Collaboration: IPNJ is a platform for collaboration among nurses, educators, researchers, and policymakers—driving innovation and addressing healthcare challenges.",
+            "International Professional Nursing Journal: More than a publication—it's a global community united by a passion for nursing excellence and a vision for a healthier future."
+          ].map((text, index) => (
+            <motion.p
+              key={index}
+              variants={fadeInUp}
+              className={text.endsWith(':') ? 'font-semibold italic text-lg' : ''}
+              dangerouslySetInnerHTML={text.includes('<strong>') ? { __html: text } : undefined}
             >
-              See Articles
-              <MdKeyboardArrowRight className="text-xl" />
-            </button>
-          </Link>
-        </div>
-      </div>
+              {!text.includes('<strong>') && text}
+            </motion.p>
+          ))}
+        </motion.div>
+
+        {/* Articles Section */}
+        <motion.div 
+          className="mt-16 mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div 
+            className="flex items-center gap-3 mb-6"
+            whileInView={{ x: [-20, 0] }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+            >
+              <MdMenuBook className="text-3xl text-blue-600" />
+            </motion.div>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800">Journal Articles</h2>
+          </motion.div>
+          
+          <motion.p 
+            className="text-gray-600 mb-8 max-w-3xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Access our complete archive of peer-reviewed articles, research papers, and clinical studies. 
+            Browse by year or use the search to find specific volumes.
+          </motion.p>
+
+          {/* Search and Filter Bar with Animation */}
+          <motion.div 
+            className="bg-blue-50 p-6 rounded-lg mb-8 max-w-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            whileHover={{ boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)" }}
+          >
+            <div className="flex flex-col md:flex-row gap-4">
+              <motion.div 
+                className="flex-1 relative"
+                whileHover={{ scale: 1.02 }}
+              >
+                <MdSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search articles by volume..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                />
+              </motion.div>
+              <motion.div 
+                className="md:w-48 relative"
+                whileHover={{ scale: 1.02 }}
+              >
+                <MdFilterList className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" />
+                <select
+                  value={selectedYear}
+                  onChange={(e) => setSelectedYear(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white appearance-none cursor-pointer transition-all duration-300"
+                >
+                  {years.map(year => (
+                    <option key={year} value={year}>
+                      {year === "All" ? "All Years" : year}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Articles Grid with AnimatePresence */}
+          <AnimatePresence mode="wait">
+            {filteredArticles.length > 0 ? (
+              <motion.div 
+                key="articles"
+                className="space-y-8 max-w-5xl"
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+                exit={{ opacity: 0, y: 20 }}
+              >
+                {sortedYears.map(year => (
+                  <motion.div 
+                    key={year} 
+                    className="bg-white rounded-lg shadow-md overflow-hidden"
+                    variants={yearHeaderVariants}
+                    whileHover={{ boxShadow: "0 20px 25px -5px rgba(0,0,0,0.1)" }}
+                  >
+                    <motion.div 
+                      className="bg-blue-600 text-white px-6 py-3 flex items-center gap-2"
+                      whileHover={{ backgroundColor: "#2563eb" }}
+                    >
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      >
+                        <MdCalendarToday />
+                      </motion.div>
+                      <h3 className="text-lg font-semibold">Year {year}</h3>
+                      <motion.span 
+                        className="bg-blue-400 text-sm px-2 py-1 rounded-full ml-2"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {groupedArticles[year].length} {groupedArticles[year].length === 1 ? 'Article' : 'Articles'}
+                      </motion.span>
+                    </motion.div>
+                    <div className="p-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {groupedArticles[year].map((article, index) => (
+                          <motion.a
+                            key={index}
+                            href={article.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block p-4 border border-gray-200 rounded-lg"
+                            variants={cardVariants}
+                            initial="initial"
+                            animate="animate"
+                            whileHover="hover"
+                            whileTap="tap"
+                            custom={index}
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <motion.h4 
+                                  className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors"
+                                  whileHover={{ x: 5 }}
+                                >
+                                  {article.vol}
+                                </motion.h4>
+                                <p className="text-sm text-gray-500 mt-1">Published: {article.year}</p>
+                              </div>
+                              <motion.div
+                                whileHover={{ rotate: 15, scale: 1.2 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                              >
+                                <MdDownload className="text-xl text-gray-400 group-hover:text-blue-600 transition-colors" />
+                              </motion.div>
+                            </div>
+                            <motion.div 
+                              className="mt-3 flex items-center text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"
+                              initial={{ x: -10 }}
+                              whileHover={{ x: 0 }}
+                            >
+                              <span>Read Article</span>
+                              <motion.div
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ duration: 1, repeat: Infinity }}
+                              >
+                                <MdKeyboardArrowRight className="ml-1" />
+                              </motion.div>
+                            </motion.div>
+                          </motion.a>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="no-results"
+                className="text-center py-12 bg-gray-50 rounded-lg max-w-5xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.p 
+                  className="text-gray-500 text-lg"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  No articles found matching your criteria.
+                </motion.p>
+                <motion.button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setSelectedYear("All");
+                  }}
+                  className="mt-4 text-blue-600 hover:text-blue-800 underline"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Clear filters
+                </motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Archive Stats with Animation */}
+          <motion.div 
+            className="mt-8 bg-gray-50 p-4 rounded-lg max-w-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            whileHover={{ backgroundColor: "#e5e7eb" }}
+          >
+            <motion.p 
+              className="text-gray-600"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <span className="font-semibold">{articles.length}</span> total articles in archive • 
+              <span className="font-semibold ml-1">{new Set(articles.map(a => a.year)).size}</span> years of publication
+            </motion.p>
+          </motion.div>
+        </motion.div>
+
+      </motion.div>
 
       <Footer />
     </>

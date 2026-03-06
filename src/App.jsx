@@ -95,34 +95,38 @@ const App = () => {
         <Route path="/journal" element={<Journal />} />
         <Route path="/institute" element={<Institute />} />
         <Route path="/archive" element={<Archive />} />
+        <Route path="/journal/ipnj" element={<ProfessionalJournal />} />
+        <Route path="/journal/isjmpnr" element={<MentalHealthJournal />} />
+        <Route path="/journal/ijacn" element={<ClinicalNursingJournal />} />
+        <Route path="/journal/ijmri" element={<InnovationJournal />} />
+        <Route path="/journal/ijanr" element={<NursingJournal />} />
+        <Route path="/journal/irjmpch" element={<Multidisciplinary />} />
+        <Route path="/journal/wjwihpr" element={<WellspringJournal />} />
+        <Route path="/journal/irjpch" element={<CommunityJournal />} />
+        <Route path="/journal/isjchnr" element={<ISJCHNR />} />
         <Route
-          path="/professional-nursing-journal"
-          element={<ProfessionalJournal />}
+          path="/journal/isjpchnr"
+          element={<SpecialtyCommunityJournal />}
         />
-        <Route path="/Isjmpnr" element={<MentalHealthJournal />} />
+        <Route path="/journal/isjner" element={<SpecialtyNursingJournal />} />
+        <Route
+          path="/journal/msnr"
+          element={<MedicalSurgicalNursingJournal />}
+        />
+        <Route path="/journal/mchnr" element={<MaternalChildJournal />} />
+        
         <Route path="/nsu" element={<NSUNProfilePage />} />
-        <Route path="/ijacn" element={<ClinicalNursingJournal />} />
-        <Route path="/msnr" element={<MedicalSurgicalNursingJournal />} />
-        <Route path="/mchnr" element={<MaternalChildJournal />} />
         <Route path="/icvs" element={<ICVSPage />} />
         <Route path="/jani" element={<JANI />} />
         <Route path="/commonwealth" element={<CommonwealthPage />} />
         <Route path="/cne" element={<CONE />} />
         <Route path="/nan" element={<NursingAcademy />} />
         <Route path="/ihcns" element={<IntegratedHealth />} />
-        <Route path="/ijmri" element={<InnovationJournal />} />
-        <Route path="/ijanr" element={<NursingJournal />} />
-        <Route path="/irjmpch" element={<Multidisciplinary />} />
-        <Route path="/wjwihpr" element={<WellspringJournal />} />
-        <Route path="/irjpch" element={<CommunityJournal />} />
-        <Route path="/isjchnr" element={<ISJCHNR />} />
         <Route path="/inf" element={<InternationalNursingFoundation />} />
         <Route path="/nml" element={<League />} />
         <Route path="/nmc" element={<Maurice />} />
         <Route path="/research" element={<Research />} />
         <Route path="/agriculture" element={<Agriculture />} />
-        <Route path="/isjpchnr" element={<SpecialtyCommunityJournal />} />
-        <Route path="/isjner" element={<SpecialtyNursingJournal />} />
         <Route path="/health" element={<HealthInstitute />} />
         <Route path="/about" element={<About />} />
         <Route path="/articles" element={<Articles />} />
