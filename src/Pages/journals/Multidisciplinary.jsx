@@ -720,7 +720,7 @@ const MultidisciplinaryJournal = () => {
                 animate={{ opacity: [1, 0.8, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                3043-5218
+                3043-4793
               </motion.span>
             </p>
           </motion.div>
